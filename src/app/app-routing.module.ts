@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ContactComponent } from './contact/contact.component';
-import { FloorballComponent } from './floorball/floorball.component';
-import { FootballComponent } from './football/football.component';
-import { HockeyComponent } from './hockey/hockey.component';
-import { HomeComponent } from './home/home.component';
-import { MainComponent } from './main/main.component';
+import { ContactComponent } from './component/contact/contact.component';
+import { FloorballComponent } from './component/floorball/floorball.component';
+import { FootballComponent } from './component/football/football.component';
+import { HockeyComponent } from './component/hockey/hockey.component';
+import { HomeComponent } from './component/home/home.component';
+import { MainComponent } from './component/main/main.component';
 
 const routes: Routes = [
   {path:'', component: MainComponent},

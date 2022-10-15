@@ -3,14 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MainComponent } from './main/main.component';
-import { HomeComponent } from './home/home.component';
-import { ContactComponent } from './contact/contact.component';
-import { FootballComponent } from './football/football.component';
-import { HockeyComponent } from './hockey/hockey.component';
-import { FloorballComponent } from './floorball/floorball.component';
-import { NavbarComponent } from './main/navbar/navbar.component';
-import { SidebarComponent } from './main/sidebar/sidebar.component';
+import { MainComponent } from './component/main/main.component';
+import { HomeComponent } from './component/home/home.component';
+import { ContactComponent } from './component/contact/contact.component';
+import { FootballComponent } from './component/football/football.component';
+import { HockeyComponent } from './component/hockey/hockey.component';
+import { FloorballComponent } from './component/floorball/floorball.component';
+import { NavbarComponent } from './component/main/navbar/navbar.component';
+import { SidebarComponent } from './component/main/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
