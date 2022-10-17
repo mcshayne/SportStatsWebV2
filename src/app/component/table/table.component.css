@@ -1,0 +1,19 @@
+table {
+    width: 100%;
+  }
+
+
+  .tableHeaderCellDiv { 
+    resize: horizontal;  
+    overflow:hidden;
+
+}
+
+.mat-header-cell{
+  justify-content: center;
+  flex-direction: column;
+}
+.mat-cell{
+  text-align: center;
+  justify-content: center;
+}
