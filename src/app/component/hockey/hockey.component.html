@@ -5,10 +5,15 @@
       </div>
       <div class="col-9">
         <app-table></app-table>
-        <p class="foobar">foobar</p>
+     
       </div>
       <div class="col">
         Column
       </div>
+    <table>
+        <tr *ngFor="let x of test">
+            <td>{{x |json}}</td>
+        </tr>
+  </table>
     </div>
   </div>
