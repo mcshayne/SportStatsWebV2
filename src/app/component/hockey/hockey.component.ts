@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { sport } from './sport';
-
+import { hockeyService } from './hockeyService';
 
 
 @Component({
@@ -9,23 +8,22 @@ import { sport } from './sport';
   templateUrl: './hockey.component.html',
   styleUrls: ['./hockey.component.css']
 })
+
 export class HockeyComponent implements OnInit {
-  totalAngularPackages: any;
-  public test:sport [] = [];
-  constructor(private http: HttpClient) { }
+  public sports:sport [] = [];
+
+  constructor(private hockeyService: hockeyService) { }
 
   ngOnInit(): void {
       this.getData();
+      console.log(this.sports);
   
   }
   public getData():void{
-    this.http.get<sport[]>('http://api.everysport.com/v1/sports?apikey=26192887ec48f76ab54167238ae16688').subscribe(data=>{
-      this.totalAngularPackages = data;
-      console.log(data);
-      console.log(this.totalAngularPackages);
-      this.test = this.totalAngularPackages;
-      console.log(this.test);
-    })
-  }
- 
-}
+    this.hockeyService.getEmployees().subscribe(
+      (response: sport[]) =>{
+        console.log(response);
+        this.sports = response;
+      }
+    );
+    }}
