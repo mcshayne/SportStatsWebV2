@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { sport } from './sport';
 import { hockeyService } from './hockeyService';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -10,20 +11,34 @@ import { hockeyService } from './hockeyService';
 })
 
 export class HockeyComponent implements OnInit {
-  public sports:sport [] = [];
+  sports: sport[] | undefined;
+  temp!: sport;
 
   constructor(private hockeyService: hockeyService) { }
-
+ 
   ngOnInit(): void {
       this.getData();
-      console.log(this.sports);
+
   
   }
   public getData():void{
-    this.hockeyService.getEmployees().subscribe(
-      (response: sport[]) =>{
-        console.log(response);
-        this.sports = response;
-      }
-    );
-    }}
+    this.hockeyService.getEmployees().subscribe((res ) => {   
+         this.sports = res
+         this.temp = res[1];
+         console.log(res[1]);
+        }
+
+  
+    )
+
+    
+    /* this.hockeyService.getEmployees().subscribe((sports)=>{ console.log(sports)
+      this.sports = sports.map((sport) =>({
+        id: sport.id,
+        name: sport.name,
+        slug:sport.slug
+      }))
+
+      }); */
+    }
+  }

@@ -10,21 +10,13 @@
       <div class="col">
         Column
       </div>
-      <table class="table table-hover">
-        <tbody><tr>
-    <!--      <td class="number text-center">1</td>
-          <td class="image"><img src="https://via.placeholder.com/400x300/FF8C00" alt=""></td>
-          <td class="product"><strong>Product 1</strong><br>This is the product description.</td>
-          <td class="rate text-right"><span><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></span></td>
-          <td class="price text-right">$350</td>
-    -->
-    <div *ngFor="let sport of sports; let i = index" [attr.data-index]="i">
-        <td class="number text-center">{{i+1}}</td>
-          <td class="product"><strong>{{sport?.name}}</strong><br>{{sport?.name}}</td>
-          <td class="rate text-right"><span><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></span></td>
-          <td class="price text-right">$350</td>
-     </div>
-        </tr>
-      </tbody></table>
+     
+      <ul>
+        <li *ngFor="let temp of sports">
+          {{temp.id}} {{temp.name}} 
+        </li>
+      </ul>
+
+
     </div>
   </div>
