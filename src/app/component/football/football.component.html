@@ -1,1 +1,42 @@
 <p>football works!</p>
+
+
+
+<div style="width:900px;margin:50px auto">
+
+    <table  style="width:100%"
+            mat-table 
+            [dataSource]="periodicElement">
+  
+            <ng-container matColumnDef="position">
+              <!--matHeadercelldef is used for sorting purposes, when clicking a column it should sort according to the cell?-->
+                <th mat-header-cell *matHeaderCellDef>#</th>
+                <td mat-cell *matcellDef="let element">{{element?.position}}</td>
+            </ng-container>
+  
+            <ng-container matColumnDef="name">
+              <!--matHeadercelldef is used for sorting purposes, when clicking a column it should sort according to the cell?-->
+                <th mat-header-cell *matHeaderCellDef>Name</th>
+                <td mat-cell *matcellDef="let element">{{element?.name}}</td>
+            </ng-container>       
+  
+            <ng-container matColumnDef="weight">
+              <!--matHeadercelldef is used for sorting purposes, when clicking a column it should sort according to the cell?-->
+                <th mat-header-cell *matHeaderCellDef>Weight</th>
+                <td mat-cell *matcellDef="let element">{{element?.weight}}</td>
+  
+            </ng-container>       
+            
+            <ng-container matColumnDef="symbol">
+              <!--matHeadercelldef is used for sorting purposes, when clicking a column it should sort according to the cell?-->
+                <th mat-header-cell *matHeaderCellDef>Symbol</th>
+                <td mat-cell *matcellDef="let element">{{element?.symbol}}</td>
+            </ng-container>
+  
+            <!--Table rows-->
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          
+    </table>
+  </div>
+  
