@@ -11,8 +11,7 @@ import { Observable } from 'rxjs';
 })
 
 export class HockeyComponent implements OnInit {
-  sports: sport[] | undefined;
-  temp!: sport;
+  sports: any = [] ;
 
   constructor(private hockeyService: hockeyService) { }
  
@@ -22,14 +21,11 @@ export class HockeyComponent implements OnInit {
   
   }
   public getData():void{
-    this.hockeyService.getEmployees().subscribe((res ) => {   
-         this.sports = res
-         this.temp = res[1];
-         console.log(res[1]);
-        }
-
+    this.hockeyService.getEmployees().subscribe(res => 
+      {this.sports = Object.values(res)[1]
+      console.log(Object.values(res)[1])})
   
-    )
+  
 
     
     /* this.hockeyService.getEmployees().subscribe((sports)=>{ console.log(sports)

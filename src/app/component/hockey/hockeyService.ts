@@ -19,7 +19,8 @@ export class hockeyService {
 
   public getEmployees():Observable<sport[]>{
     return this.http.get<sport[]>(`http://api.everysport.com/v1/sports?apikey=26192887ec48f76ab54167238ae16688`)
-    .pipe(map((sports:sport[])=>Object.values(sports)))
+    
+    //.pipe(map((sports:sport[])=>Object.values(sports)))
    /*  .pipe(map((sports:sport[])=>{
       return sports.map(sports =>({
         id:sports.id,
