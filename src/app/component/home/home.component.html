@@ -1,1 +1,7 @@
-<p>home works!</p>
+<div class="container">
+    <ul>
+      <li *ngFor="let i of events">
+        {{i.homeTeam.name}} {{i.homeTeamScore}} {{i.visitingTeam.name}} {{i.visitingTeamScore}} {{i.status}} 
+      </li>
+    </ul>
+</div>

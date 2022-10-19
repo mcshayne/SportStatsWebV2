@@ -1,4 +1,4 @@
-import { sport } from "./sport";
+import { sport } from "../../interface/sport";
 
 export interface IDataResponse<T> {
     sport: Array<T>;
