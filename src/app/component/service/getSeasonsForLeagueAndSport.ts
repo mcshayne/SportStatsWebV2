@@ -12,12 +12,12 @@ import { team } from 'src/app/interface/team'
 @Injectable({
   providedIn: 'root'
 })
-export class getTeamsForLeagueBySeason {
+export class getSeasonsForLeagueAndSport {
     private readonly apiServerUrl = environment.apiBaseUrl;
     private readonly apiServerKey = environment.apiKey;
   constructor(private http: HttpClient) { }
 
-  public getTeamsForLeagueBySeason(season:number,sportId:number):Observable<team[]>{
-    return this.http.get<team[]>( `${this.apiServerUrl}/leagues/?sport=${sportId}&activeDate=${season}&${this.apiServerKey}`)
+  public get(leagueId:number):Observable<team[]>{
+    return this.http.get<team[]>( `${this.apiServerUrl}/leagues/${leagueId}/seasons/?${this.apiServerKey}`)
   }
 }

@@ -48,7 +48,7 @@
         <!-- Name Column -->
         <ng-container matColumnDef="Lag" >
           <th mat-header-cell *matHeaderCellDef> Lag </th>
-          <td mat-cell *matCellDef="let element"> {{element.Lag}} </td>
+          <td mat-cell *matCellDef="let element" (click)="foobar()"> {{element.Lag}} </td>
         </ng-container>
       
         <!-- Weight Column -->

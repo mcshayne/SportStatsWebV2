@@ -1,6 +1,7 @@
 import { TemplateBindingParseResult } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { Team } from '../model/team';
+import { MatTableDataSource } from '@angular/material/table';
+import { getSeasonsForLeagueAndSport } from '../service/getSeasonsForLeagueAndSport';
 import { getTeamsForLeagueBySeason } from '../service/getTeamsForLeagueBySeasonId';
 export interface PeriodicElement {
   name: string;
@@ -51,22 +52,32 @@ export class TableComponent implements OnInit {
   dC: string[] = ['symbol','Lag','M','V','O','F','GM','IM','MS','P'];
   testSource = test_data;
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumnsForSeason:string[] = ['season'];
   dataSource = ELEMENT_DATA;
 
   teams:any = [];
-  constructor(private get: getTeamsForLeagueBySeason) { }
+  seasons: any = [];
+  constructor(private getStanding: getTeamsForLeagueBySeason,private getSeasons: getSeasonsForLeagueAndSport ) { }
 
   ngOnInit(): void {
     this.getTableData();
   }
 
-
+  seasonDataSource:any;
   public getTableData():void{   
-    this.get.getTeamsForLeagueBySeason(2021,10).subscribe(res => 
-      {console.log(Object.values(res)[1])
-        
+/*    this.getStanding.getTeamsForLeagueBySeason(2021,10).subscribe(res =>   {
+        console.log(Object.values(res)[1])
         this.teams = Object.values(res)[1]
-      })
+      })*/
+      this.getSeasons.get(124439).subscribe(res => {
+          console.log(Object.values(res)[1])
+          this.seasons = Object.values(res)[1]
+          this.seasonDataSource = new MatTableDataSource(this.seasons)
+        })
+  }
+
+  public foobar(){
+    alert("foobar");
   }
 
 }

@@ -1,3 +1,4 @@
+import { season } from "./season";
 import { sport } from "./sport";
 
 export interface league{
@@ -9,4 +10,5 @@ export interface league{
     startDate:string;
     endDate:string;
     sport:sport;
+    season:season;
 }

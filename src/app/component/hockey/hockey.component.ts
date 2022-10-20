@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { sport } from '../../interface/sport';
 import { hockeyService } from './hockeyService';
-import { Observable } from 'rxjs';
 
 
 @Component({
@@ -16,7 +14,7 @@ export class HockeyComponent implements OnInit {
   constructor(private hockeyService: hockeyService) { }
  
   ngOnInit(): void {
-      this.getData();
+      //this.getData();
 
   
   }
@@ -24,11 +22,5 @@ export class HockeyComponent implements OnInit {
     this.hockeyService.getSports().subscribe(res => 
       {this.sports = Object.values(res)[1]
       console.log(Object.values(res)[1])})
-  
-  
-
-    
-
-
   }
 }
