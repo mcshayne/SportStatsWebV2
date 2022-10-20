@@ -4,6 +4,7 @@ import { sport } from './sport';
 import { Observable } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { JsonPipe } from '@angular/common';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -14,12 +15,14 @@ import { JsonPipe } from '@angular/common';
   providedIn: 'root'
 })
 export class hockeyService {
-
+  private readonly apiServerUrl = environment.apiBaseUrl;
+  private readonly apiServerKey = environment.apiKey;
+ 
   constructor(private http: HttpClient) { }
 
   public getEmployees():Observable<sport[]>{
-    return this.http.get<sport[]>(`http://api.everysport.com/v1/sports?apikey=26192887ec48f76ab54167238ae16688`)
-    
+    return this.http.get<sport[]>( `${this.apiServerUrl}/leagues/119512/events?${this.apiServerKey}&limit=3`)
+    //`http://api.everysport.com/v1/leagues/119512/events?apikey=26192887ec48f76ab54167238ae16688&limit=3`
     //.pipe(map((sports:sport[])=>Object.values(sports)))
    /*  .pipe(map((sports:sport[])=>{
       return sports.map(sports =>({

@@ -22,19 +22,17 @@ export class HockeyComponent implements OnInit {
   }
   public getData():void{
     this.hockeyService.getEmployees().subscribe(res => 
-      {this.sports = Object.values(res)[1]
-      console.log(Object.values(res)[1])})
-  
-  
-
-    
-    /* this.hockeyService.getEmployees().subscribe((sports)=>{ console.log(sports)
-      this.sports = sports.map((sport) =>({
-        id: sport.id,
-        name: sport.name,
-        slug:sport.slug
-      }))
-
-      }); */
+      {console.log(Object.values(res)[1])
+        
+        this.sports = Object.values(res)[1]
+      })
     }
+
+
+
+
+
+
+
+
   }

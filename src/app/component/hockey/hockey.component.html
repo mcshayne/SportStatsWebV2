@@ -13,7 +13,7 @@
      
       <ul>
         <li *ngFor="let i of sports">
-          {{i.id}} {{i.name}} 
+          {{i.id}} {{i.name}} {{i.slug}} {{i.status}}  {{i.homeTeam.name}} {{i.homeTeam.id}} {{i.homeTeam.arena.name}}
         </li>
       </ul>
 

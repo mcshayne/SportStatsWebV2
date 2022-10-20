@@ -1,4 +1,7 @@
+import { TemplateBindingParseResult } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { Team } from '../model/team';
+import { getTeamsForLeagueBySeason } from '../service/getTeamsForLeagueBySeasonId';
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -32,7 +35,13 @@ export interface sportTable{
   P:number;
 }
 
-const test_data:sportTable [] = [{symbol:1,Lag:'BK Häcken',M:26,V:15,O:9,F:2,GM:58,IM:32,MS:26,P:54}];
+const test_data:sportTable [] = [{symbol:1,Lag:'BK Häcken',M:26,V:15,O:9,F:2,GM:58,IM:32,MS:26,P:54}
+,{symbol:1,Lag:'BK Häcken',M:26,V:15,O:9,F:2,GM:58,IM:32,MS:26,P:54}
+,{symbol:1,Lag:'BK Häcken',M:26,V:15,O:9,F:2,GM:58,IM:32,MS:26,P:54}
+,{symbol:1,Lag:'BK Häcken',M:26,V:15,O:9,F:2,GM:58,IM:32,MS:26,P:54}
+,{symbol:1,Lag:'BK Häcken',M:26,V:15,O:9,F:2,GM:58,IM:32,MS:26,P:54}
+,{symbol:1,Lag:'BK Häcken',M:26,V:15,O:9,F:2,GM:58,IM:32,MS:26,P:54}
+,{symbol:1,Lag:'BK Häcken',M:26,V:15,O:9,F:2,GM:58,IM:32,MS:26,P:54}];
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -43,9 +52,21 @@ export class TableComponent implements OnInit {
   testSource = test_data;
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
-  constructor() { }
+
+  teams:any = [];
+  constructor(private get: getTeamsForLeagueBySeason) { }
 
   ngOnInit(): void {
+    this.getTableData();
+  }
+
+
+  public getTableData():void{   
+    this.get.getTeamsForLeagueBySeason(2021,10).subscribe(res => 
+      {console.log(Object.values(res)[1])
+        
+        this.teams = Object.values(res)[1]
+      })
   }
 
 }
