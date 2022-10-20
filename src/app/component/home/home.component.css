@@ -1,0 +1,64 @@
+
+.div-football{
+  margin-top: 25px;
+  margin-bottom: 100px;
+  margin-left: 100px;
+  
+}
+
+.football-card{
+  width: 400px;
+  height: 600px; 
+}
+  
+  .football-image1 {
+    background-image: url('https://png.pngtree.com/element_our/20190529/ourlarge/pngtree-man-playing-football-image_1200610.jpg');
+    background-size: cover;
+  }
+
+  .div-NHL{
+    margin-bottom: 100px;
+    margin-left: 100px;
+  }
+
+  .NHL-card{
+    width: 400px;
+    height: 500px;
+  }
+  
+  .NHL-image {
+    background-image: url('https://png.pngtree.com/png-clipart/20220823/original/pngtree-professional-sport-and-lifestyle-concept-png-image_8479395.png');
+    background-size: cover;
+  }
+
+  .div-Floorball{
+    margin-bottom: 400px;
+    margin-left: 100px;
+  }
+
+  .Floorball-card{
+    width: 400px;
+    height: 500px;
+  }
+
+  .Floorball-image {
+    background-image: url('https://dltaw1vhj9zy5.cloudfront.net/2021/06/2019-WFC-SWE-SUI-Fabian-Trees-2-1024x682.jpg');
+    background-size: cover;
+  }
+
+  .footballdivMatch0{
+    border:solid black;
+    margin-bottom: 2px;
+  }
+
+  
+  .nhldivMatch0{
+    border:solid black;
+    margin-bottom: 2px;
+  }
+
+  
+  .floorballdivMatch0{
+    border:solid black;
+    margin-bottom: 2px;
+  }
