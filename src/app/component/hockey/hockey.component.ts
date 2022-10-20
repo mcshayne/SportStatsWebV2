@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { sport } from './sport';
+import { sport } from '../../interface/sport';
 import { hockeyService } from './hockeyService';
 import { Observable } from 'rxjs';
 
@@ -21,18 +21,14 @@ export class HockeyComponent implements OnInit {
   
   }
   public getData():void{
-    this.hockeyService.getEmployees().subscribe(res => 
-      {console.log(Object.values(res)[1])
-        
-        this.sports = Object.values(res)[1]
-      })
-    }
+    this.hockeyService.getSports().subscribe(res => 
+      {this.sports = Object.values(res)[1]
+      console.log(Object.values(res)[1])})
+  
+  
 
-
-
-
-
-
+    
 
 
   }
+}

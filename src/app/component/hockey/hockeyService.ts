@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { sport } from './sport';
+import { sport } from '../../interface/sport';
 import { Observable } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { JsonPipe } from '@angular/common';
