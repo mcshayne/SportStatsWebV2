@@ -20,7 +20,7 @@ export class hockeyService {
  
   constructor(private http: HttpClient) { }
 
-  public getEmployees():Observable<sport[]>{
+  public getSports():Observable<sport[]>{
     return this.http.get<sport[]>( `${this.apiServerUrl}/leagues/119512/events?${this.apiServerKey}&limit=3`)
     //`http://api.everysport.com/v1/leagues/119512/events?apikey=26192887ec48f76ab54167238ae16688&limit=3`
     //.pipe(map((sports:sport[])=>Object.values(sports)))
