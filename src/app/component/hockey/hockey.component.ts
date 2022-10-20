@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { sport } from '../../interface/sport';
 import { hockeyService } from './hockeyService';
 import { Observable } from 'rxjs';
+import { LeagueService } from 'src/app/service/league.service';
 
 
 @Component({
@@ -10,31 +11,27 @@ import { Observable } from 'rxjs';
   styleUrls: ['./hockey.component.css']
 })
 
-export class HockeyComponent implements OnInit {
-  sports: any = [] ;
-
-  constructor(private hockeyService: hockeyService) { }
+export class HockeyComponent {
+  leaguesM: any = [];
+  leaguesW: any = [];
+  sports: any = [];
+  
+  constructor(private leagueService: LeagueService) { }
  
   ngOnInit(): void {
-      this.getData();
+    this.getDataM();
+    this.getDataW();
+}
 
-  
+public getDataM():void{
+  this.leagueService.getHockeyLeaguesM().subscribe(res => 
+    {this.leaguesM = Object.values(res)[1]
+    console.log(res)})
   }
-  public getData():void{
-    this.hockeyService.getSports().subscribe(res => 
-      {this.sports = Object.values(res)[1]
-      console.log(Object.values(res)[1])})
-  
-  
 
-    
-    /* this.hockeyService.getEmployees().subscribe((sports)=>{ console.log(sports)
-      this.sports = sports.map((sport) =>({
-        id: sport.id,
-        name: sport.name,
-        slug:sport.slug
-      }))
-
-      }); */
+  public getDataW():void{
+    this.leagueService.getHockeyLeaguesW().subscribe(res => 
+      {this.leaguesW = Object.values(res)[1]
+      console.log(res)})
     }
   }
