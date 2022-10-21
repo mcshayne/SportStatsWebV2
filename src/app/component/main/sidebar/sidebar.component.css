@@ -60,7 +60,6 @@
   */
   .dropdown-container-hidden {
     display: none;
-    background-color: #f1f1f1;
   }
   .dropdown-container-visible {
     display: display-box;
