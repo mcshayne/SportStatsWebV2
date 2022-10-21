@@ -1,5 +1,6 @@
 <div class="sidebar">
-    <a routerLinkActive="active" routerLink="/home"><i class="fa fa-fw fa-home"></i> Home</a>
+    <a (click)="hideDropdownContainer()" (keypress)="hideDropdownContainer()"
+      routerLinkActive="active" routerLink="/home"><i class="fa fa-fw fa-home"></i> Home</a>
     <!-- tabindex="0" makes the element below focusable in sequential keyboard navigation -->
     <a tabindex="0" (click)="switchDropdownContainerVisibility()"
                     (keypress)="switchDropdownContainerVisibility()">
@@ -11,5 +12,6 @@
         <a routerLinkActive="active" routerLink="/floorball"><i class="fas fa-futbol"></i> Floorball</a>
       </div>
     </a>
-    <a routerLinkActive="active" routerLink="/contact"><i class="fa fa-fw fa-envelope"></i> Contact us</a>
-  </div>
+    <a (click)="hideDropdownContainer()" (keypress)="hideDropdownContainer()"
+       routerLinkActive="active" routerLink="/contact"><i class="fa fa-fw fa-envelope"></i> Contact us</a>
+</div>

@@ -23,4 +23,8 @@ export class SidebarComponent implements OnInit {
     }
   }
 
+  hideDropdownContainer(){
+    this.dropdownContainerIsVisible = false;
+  }
+
 }
