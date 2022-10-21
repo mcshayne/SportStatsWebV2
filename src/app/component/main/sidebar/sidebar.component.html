@@ -7,9 +7,12 @@
       <i class="fas fa-medal"></i> Sports <i class="fa fa-caret-down"></i>
       <div [ngClass]="{'dropdown-container-hidden': dropdownContainerIsVisible == false,
                        'dropdown-container-visible': dropdownContainerIsVisible == true}">
-        <a routerLinkActive="active" routerLink="/football"><i class="far fa-futbol"></i> Football</a>
-        <a routerLinkActive="active" routerLink="/hockey"><i class="fas fa-hockey-puck"></i> Ice Hockey</a>
-        <a routerLinkActive="active" routerLink="/floorball"><i class="fas fa-futbol"></i> Floorball</a>
+        <a (click)="hideDropdownContainer()" (keypress)="hideDropdownContainer()"
+          routerLinkActive="active" routerLink="/football"><i class="far fa-futbol"></i> Football</a>
+        <a (click)="hideDropdownContainer()" (keypress)="hideDropdownContainer()"
+          routerLinkActive="active" routerLink="/hockey"><i class="fas fa-hockey-puck"></i> Ice Hockey</a>
+        <a (click)="hideDropdownContainer()" (keypress)="hideDropdownContainer()"
+          routerLinkActive="active" routerLink="/floorball"><i class="fas fa-futbol"></i> Floorball</a>
       </div>
     </a>
     <a (click)="hideDropdownContainer()" (keypress)="hideDropdownContainer()"
