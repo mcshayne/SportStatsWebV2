@@ -1,4 +1,4 @@
 export interface stats{
-    name:string;
-    value:string;
+    name:string[];
+    value:number[];
 }
