@@ -33,7 +33,24 @@
   <div class="row">
 <!---->
   <div class="col" >
-  
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col" *ngFor="let i of dC">
+          {{i}}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of leagueStandings; let in = index" >
+        <td scope="row">{{i.position}} </td>
+        <td>{{i.team.name}}</td>
+        <td *ngFor="let x of statsForTeam[in] ">{{x.value}}  </td>
+      </tr>
+    </tbody>
+    </table>
+    
+    
   </div>
   <div class="col-1">
     Col2
@@ -48,36 +65,13 @@
       </ng-container>
 
     <tr mat-header-row  class="th-right" *matHeaderRowDef="displayedColumnsForSeason;"></tr>
-    <tr mat-row  *matRowDef="let row; columns: displayedColumnsForSeason;"></tr>
+    <tr mat-row  (click)="foobar(row.id)"*matRowDef="let row; columns: displayedColumnsForSeason;"></tr>
   </table>
   </div>
 </div>
 </div>
 
-  <ul>
-  <li *ngFor="let i of leagueStandings; let in = index" >
-    
-     {{i.position}} {{i.team.name}}  
-     <a *ngFor="let x of statsForTeam[in] "> {{x.value}}</a>
-  </li>
-</ul> 
 
-<table class="table table-hover">
-  <thead>
-  <tr>
-    <th scope="col" *ngFor="let i of dC">
-      {{i}}
-    </th>
-  </tr>
-</thead>
-<tbody>
-  <tr *ngFor="let i of leagueStandings; let in = index" >
-    <td scope="row">{{i.position}} </td>
-    <td>{{i.team.name}}</td>
-    <td *ngFor="let x of statsForTeam[in] ">{{x.value}}  </td>
-  </tr>
-</tbody>
-</table>
 
 
 <!-- 

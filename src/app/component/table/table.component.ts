@@ -77,27 +77,27 @@ export class TableComponent implements OnInit {
     ,private getStandingBySeason: getStandingBySeason ) { }
 
   ngOnInit(): void {
-    this.getTableData();
+    this.getTableData(124439);
   }
 
   seasonDataSource:any;
   teamPositionDataSource:any;
   statsDataSource:any;
 
-  public getTableData():void{   
+  public getTableData(leagueId:number):void{   
 /*    this.getStanding.getTeamsForLeagueBySeason(2021,10).subscribe(res =>   {
         console.log(Object.values(res)[1])
         this.teams = Object.values(res)[1]
       })*/
-      this.getSeasons.get(124439).subscribe(res => {
+      this.getSeasons.get(leagueId).subscribe(res => {
          // console.log(Object.values(res)[1])
           this.seasons = Object.values(res)[1]
-
+          console.log(this.seasons)
           this.seasonDataSource = new MatTableDataSource(this.seasons)
 
         })
 
-        this.getStandingBySeason.get(124439).subscribe(res=>{
+        this.getStandingBySeason.get(leagueId).subscribe(res=>{
          // console.log(Object.values(res)[1])
           
           this.leagueStandings = Object.values(res).at(1)
@@ -122,20 +122,19 @@ export class TableComponent implements OnInit {
         
           }
           this.statsDataSource = new MatTableDataSource(this.statsForTeam)
-          console.log(this.statsDataSource)
+          //console.log(this.statsDataSource)
 
   
           //console.log(Object.values(this.statsForTeam))
-         
-       
-          
           //console.log(Object.values(this.standings)[0])
           
         })
   }
 
-  public foobar(){
-    alert("foobar");
+  public foobar(row: any){
+    console.log(row)
+    this.getTableData(row);
+
   }
 
 }
