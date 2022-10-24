@@ -54,3 +54,14 @@
       float: none;
     }
   }
+
+  /* The dropdown container div alternates between these two classes to keep the container hidden
+     until it is requested by a click.
+  */
+  .dropdown-container-hidden {
+    display: none;
+  }
+  .dropdown-container-visible {
+    display: display-box;
+    background-color: #f1f1f1;
+  }
