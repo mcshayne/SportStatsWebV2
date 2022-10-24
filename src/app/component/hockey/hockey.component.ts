@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { sport } from '../../interface/sport';
-import { hockeyService } from './hockeyService';
 import { Observable } from 'rxjs';
 import { LeagueService } from 'src/app/service/league.service';
 

@@ -9,3 +9,7 @@ background-color: red;
     background-color: red;
 }
 
+.container {
+    margin-top: 10px;
+    width: auto;
+}
