@@ -1,4 +1,11 @@
+import { TemplateBindingParseResult } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { getSeasonsForLeagueAndSport } from '../service/getSeasonsForLeagueAndSport';
+import { getTeamsForLeagueBySeason } from '../service/getTeamsForLeagueBySeasonId';
+import { getStandingBySeason } from '../service/getStandingsBySeason';
+import { groups } from 'src/app/interface/groups';
+
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -32,20 +39,107 @@ export interface sportTable{
   P:number;
 }
 
-const test_data:sportTable [] = [{symbol:1,Lag:'BK Häcken',M:26,V:15,O:9,F:2,GM:58,IM:32,MS:26,P:54}];
+const test_data:sportTable [] = [{symbol:1,Lag:'BK Häcken',M:26,V:15,O:9,F:2,GM:58,IM:32,MS:26,P:54}
+,{symbol:1,Lag:'BK Häcken',M:26,V:15,O:9,F:2,GM:58,IM:32,MS:26,P:54}
+,{symbol:1,Lag:'BK Häcken',M:26,V:15,O:9,F:2,GM:58,IM:32,MS:26,P:54}
+,{symbol:1,Lag:'BK Häcken',M:26,V:15,O:9,F:2,GM:58,IM:32,MS:26,P:54}
+,{symbol:1,Lag:'BK Häcken',M:26,V:15,O:9,F:2,GM:58,IM:32,MS:26,P:54}
+,{symbol:1,Lag:'BK Häcken',M:26,V:15,O:9,F:2,GM:58,IM:32,MS:26,P:54}
+,{symbol:1,Lag:'BK Häcken',M:26,V:15,O:9,F:2,GM:58,IM:32,MS:26,P:54}];
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
+
 export class TableComponent implements OnInit {
-  dC: string[] = ['symbol','Lag','M','V','O','F','GM','IM','MS','P'];
+  dC: string[] = ['#','Lag','M','V','O','F','GM','IM','MS','P'];
   testSource = test_data;
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumnsForSeason:string[] = ['season'];
+  displayedColumnsForTeamPosition:string[] =['symbol','Lag'];
+  displayedColumnsForStats: string[] = ['M','V','O','F','GM','IM','MS','P'];
   dataSource = ELEMENT_DATA;
-  constructor() { }
+
+
+    fakeArray = new Array(16);
+
+ 
+  seasons: any = [];
+  leagueStandings: any = [];
+  statsForTeam: any =[];
+  temp: any=[];
+
+
+
+  constructor(private getStanding: getTeamsForLeagueBySeason
+    ,private getSeasons: getSeasonsForLeagueAndSport
+    ,private getStandingBySeason: getStandingBySeason ) { }
 
   ngOnInit(): void {
+    this.getTableData(124439);
+  }
+
+  seasonDataSource:any;
+  teamPositionDataSource:any;
+  statsDataSource:any;
+
+  public getTableData(leagueId:number):void{   
+/*    this.getStanding.getTeamsForLeagueBySeason(2021,10).subscribe(res =>   {
+        console.log(Object.values(res)[1])
+        this.teams = Object.values(res)[1]
+      })*/
+      this.getSeasons.get(leagueId).subscribe(res => {
+         // console.log(Object.values(res)[1])
+          this.seasons = Object.values(res)[1]
+          console.log(this.seasons)
+          this.seasonDataSource = new MatTableDataSource(this.seasons)
+
+        })
+
+        this.getStandingBySeason.get(leagueId).subscribe(res=>{
+         // console.log(Object.values(res)[1])
+          
+          this.leagueStandings = Object.values(res).at(1)
+          this.leagueStandings = Object.values(this.leagueStandings).at(0)
+          this.leagueStandings = Object.values(this.leagueStandings).at(0)
+          //console.log(this.leagueStandings)
+         // console.log(this.leagueStandings.length)
+          //console.log(Object.values(this.leagueStandings.at(0)))
+          this.teamPositionDataSource = new MatTableDataSource(this.leagueStandings)
+          for(let i = 0; i < this.leagueStandings.length; i++){
+            //Set which team
+            this.temp[i] = Object.values(this.leagueStandings.at(i))
+
+            //console.log(this.temp[i])
+            //Set stats
+            for(let j = 0; j < this.temp[i].length;j++){
+              if(this.temp[i].at(j).length == 8){
+                this.statsForTeam[i] = Object.values(this.temp[i].at(j))
+               // console.log(this.statsForTeam[i])
+              }
+            }
+        
+          }
+          this.statsDataSource = new MatTableDataSource(this.statsForTeam)
+          //console.log(this.statsDataSource)
+
+  
+          //console.log(Object.values(this.statsForTeam))
+          //console.log(Object.values(this.standings)[0])
+          
+        })
+  }
+
+  public foobar(row: any){
+    console.log(row)
+    this.getTableData(row);
+
+  }
+
+  public selectTeam(teamName: any){
+    //Update matches according to which team was selected
+    alert(teamName)
   }
 
 }
