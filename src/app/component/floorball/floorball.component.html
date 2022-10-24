@@ -4,17 +4,6 @@
       <div class="pb-5">
         <h1>Floorball Leagues</h1>
       </div>
-      <div class="row">
-        <div class="col-md-6"><h2>MEN</h2>
-          <li *ngFor="let m of leaguesM">
-            {{m.name}}
-          </li>
-        </div>
-        <div class="col-md-6"><h2>WOMEN</h2>
-          <li *ngFor="let w of leaguesW">
-            {{w.name}}
-          </li>
-        </div>
-      </div>
+      <app-league [sportIdentifier]=sportIdentifier></app-league>
     </div>
   </div>
