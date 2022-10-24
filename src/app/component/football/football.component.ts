@@ -10,28 +10,8 @@ import { LeagueService } from 'src/app/service/league.service';
 export class FootballComponent {
   leaguesM: any = [];
   leaguesW: any = [];
-  
+  sportIdentifier: string = "football";
+
   constructor(private leagueService: LeagueService) { }
  
-  ngOnInit(): void {
-      this.getDataM();
-      this.getDataW();
-  }
-  
-  public getDataM():void{
-    this.leagueService.getFootballLeaguesM().subscribe(res => 
-      {this.leaguesM = Object.values(res)[1]
-      console.log(res)
-      let tempId = [new Set(this.leaguesM.map((item: { id:number}) => item.id))]
-      let tempName = [new Set(this.leaguesM.map((item: { name:string}) => item.name))]
-      console.log(tempId)
-      console.log(tempName)
-    })
-    }
-  
-    public getDataW():void{
-      this.leagueService.getFootballLeaguesW().subscribe(res => 
-        {this.leaguesW = Object.values(res)[1]
-        console.log(res)})
-      }
 }
