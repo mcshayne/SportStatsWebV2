@@ -14,7 +14,8 @@ export class HockeyComponent {
   leaguesM: any = [];
   leaguesW: any = [];
   sports: any = [];
-  
+  public tableDiv:boolean = false;
+  public leagueDiv:boolean = true;
   constructor(private leagueService: LeagueService) { }
  
   ngOnInit(): void {
@@ -32,5 +33,14 @@ public getDataM():void{
     this.leagueService.getHockeyLeaguesW().subscribe(res => 
       {this.leaguesW = Object.values(res)[1]
       console.log(res)})
+    }
+
+
+
+    public switchDiv () {
+      
+      
+      this.tableDiv = true;
+      this.leagueDiv = false;
     }
   }
