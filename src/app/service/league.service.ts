@@ -18,11 +18,11 @@ export class LeagueService {
     }
 
     public getHockeyLeaguesM():Observable<league[]>{
-      return this.http.get<league[]>(`https://api.everysport.com/v1/leagues?offset=0&sort=&sport=2&teamClass=MEN&activeDate=2021&apikey=26192887ec48f76ab54167238ae16688`)
+      return this.http.get<league[]>(`https://api.everysport.com/v1/leagues?offset=0&sort=&sport=2&teamClass=MEN&apikey=26192887ec48f76ab54167238ae16688`)
     }
 
     public getHockeyLeaguesW():Observable<league[]>{
-      return this.http.get<league[]>(`https://api.everysport.com/v1/leagues?offset=0&sort=&sport=2&teamClass=WOMEN&activeDate=2021&apikey=26192887ec48f76ab54167238ae16688`)
+      return this.http.get<league[]>(`https://api.everysport.com/v1/leagues?offset=0&sort=&sport=2&teamClass=WOMEN&apikey=26192887ec48f76ab54167238ae16688`)
     }
 
     public getFloorballLeaguesM():Observable<league[]>{

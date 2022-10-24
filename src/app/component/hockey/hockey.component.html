@@ -4,7 +4,7 @@
         Column
       </div>
       <div class="col-9 "style="border-style:solid;">
-        <app-table></app-table>
+        <app-table [leagueId] = leagueId></app-table>
      
       </div>
       <div class="col">
@@ -29,12 +29,12 @@
         </div>
         <div class="row">
           <div class="col-md-6"><h2>MEN</h2>
-            <li (click) = "switchDiv()" *ngFor="let m of leaguesM">
-              {{m.name}}
+            <li (click) = "switchDiv(m[1])" *ngFor="let m of leaguesM">
+              {{m[0]}}
             </li>
           </div>
           <div class="col-md-6"><h2>WOMEN</h2>
-            <li (click) = "switchDiv()" *ngFor="let w of leaguesW">
+            <li (click) = "switchDiv(w[1])" *ngFor="let w of leaguesW">
               {{w.name}}
             </li>
           </div>

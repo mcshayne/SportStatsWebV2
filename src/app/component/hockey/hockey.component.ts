@@ -10,12 +10,16 @@ import { LeagueService } from 'src/app/service/league.service';
   styleUrls: ['./hockey.component.css']
 })
 
+
 export class HockeyComponent {
   leaguesM: any = [];
   leaguesW: any = [];
   sports: any = [];
   public tableDiv:boolean = false;
   public leagueDiv:boolean = true;
+  leagueId:number = 0;
+ 
+
   constructor(private leagueService: LeagueService) { }
  
   ngOnInit(): void {
@@ -26,20 +30,28 @@ export class HockeyComponent {
 public getDataM():void{
   this.leagueService.getHockeyLeaguesM().subscribe(res => 
     {this.leaguesM = Object.values(res)[1]
-    console.log(res)})
+      const key = 'name';
+      let tempName = new Set(new Map(this.leaguesM.map((item: any) => [item[key], item.id])))
+      this.leaguesM = tempName;
+      console.log(tempName)
+      
+    console.log(res)
+  })
   }
 
   public getDataW():void{
     this.leagueService.getHockeyLeaguesW().subscribe(res => 
       {this.leaguesW = Object.values(res)[1]
-      console.log(res)})
+      //console.log(res)
+    })
     }
 
 
 
-    public switchDiv () {
-      
-      
+    public switchDiv (id: number) {
+      console.log(id)
+      this.leagueId = id;
+      console.log(this.leagueId)
       this.tableDiv = true;
       this.leagueDiv = false;
     }
