@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container" *ngIf="tableDiv">
     <div class="row">
       <div class="col" id = "left">
         Column
       </div>
-      <div class="col-9">
+      <div class="col-9 "style="border-style:solid;">
         <app-table></app-table>
      
       </div>
@@ -13,10 +13,31 @@
      
       <ul>
         <li *ngFor="let i of sports">
-          {{i.id}} {{i.name}} 
+          {{i.id}} {{i.name}} {{i.slug}} {{i.status}}  {{i.homeTeam.name}} {{i.homeTeam.id}} {{i.homeTeam.arena.name}}
         </li>
       </ul>
 
 
     </div>
-  </div>
+</div>
+
+  <div class="container" *ngIf="leagueDiv">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="pb-5">
+          <h1>Ice Hockey Leagues</h1>
+        </div>
+        <div class="row">
+          <div class="col-md-6"><h2>MEN</h2>
+            <li (click) = "switchDiv()" *ngFor="let m of leaguesM">
+              {{m.name}}
+            </li>
+          </div>
+          <div class="col-md-6"><h2>WOMEN</h2>
+            <li (click) = "switchDiv()" *ngFor="let w of leaguesW">
+              {{w.name}}
+            </li>
+          </div>
+        </div>
+      </div>
+    </div>

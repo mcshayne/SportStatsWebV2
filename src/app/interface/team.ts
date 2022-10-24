@@ -1,3 +1,5 @@
+import { sport } from "./sport";
+
 export interface team {
     id:number;
     name:string;
@@ -5,4 +7,5 @@ export interface team {
     logo:string;
     teamClass:string;
     teamClassId:number;
+    sport:sport;
 }

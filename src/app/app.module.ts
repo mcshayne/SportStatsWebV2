@@ -30,7 +30,8 @@ import { TableComponent } from './component/table/table.component';
     FloorballComponent,
     NavbarComponent,
     SidebarComponent,
-    TableComponent
+    TableComponent,
+    
   ],
   imports: [
     BrowserModule,
