@@ -44,7 +44,7 @@
     <tbody>
       <tr *ngFor="let i of leagueStandings; let in = index" >
         <td scope="row">{{i.position}} </td>
-        <td>{{i.team.name}}</td>
+        <td (click) = "selectTeam(i.team.name)">{{i.team.name}}</td>
         <td *ngFor="let x of statsForTeam[in] ">{{x.value}}  </td>
       </tr>
     </tbody>
@@ -53,20 +53,35 @@
     
   </div>
   <div class="col-1">
-    Col2
+    
   
-    <table   mat-table [dataSource]="seasonDataSource" class="mat-elevation-z8">
+<!--     <table   mat-table [dataSource]="seasonDataSource">
 
    
-      <!-- Seasons Column -->
       <ng-container matColumnDef="season">
         <th mat-header-cell *matHeaderCellDef  > Season </th>
         <td mat-cell *matCellDef="let element"> {{element.season.startYear}} </td>
       </ng-container>
 
     <tr mat-header-row  class="th-right" *matHeaderRowDef="displayedColumnsForSeason;"></tr>
-    <tr mat-row  (click)="foobar(row.id)"*matRowDef="let row; columns: displayedColumnsForSeason;"></tr>
+    <tr mat-row (click)="foobar(row.id)"*matRowDef="let row; columns: displayedColumnsForSeason;"></tr>
+  </table> -->
+
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">
+        Season
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let i of seasons; let in = index" >
+      <td scope="row" (click) = "foobar(i.id)">{{i.season.startYear}} </td>
+    </tr>
+  </tbody>
   </table>
+  
   </div>
 </div>
 </div>

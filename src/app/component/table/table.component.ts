@@ -137,4 +137,9 @@ export class TableComponent implements OnInit {
 
   }
 
+  public selectTeam(teamName: any){
+    //Update matches according to which team was selected
+    alert(teamName)
+  }
+
 }
