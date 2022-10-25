@@ -4,7 +4,8 @@
     <!-- tabindex="0" makes the element below focusable in sequential keyboard navigation -->
     <a tabindex="0" (click)="switchDropdownContainerVisibility()"
                     (keydown.enter)="switchDropdownContainerVisibility()">
-      <i class="fas fa-medal"></i> Sports <i class="fa fa-caret-down"></i>
+      <i class="fas fa-medal"></i> Sports 
+      <i class="fa" [ngClass]="!dropdownContainerIsVisible? 'fa-caret-down' : 'fa-caret-up'"></i>
       <div [ngClass]="!dropdownContainerIsVisible? 'dropdown-container-hidden' : 'dropdown-container-visible'">
         <a (click)="hideDropdownContainer()" (keydown.enter)="hideDropdownContainer()"
           routerLinkActive="active" routerLink="/football"><i class="far fa-futbol"></i> Football</a>
