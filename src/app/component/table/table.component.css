@@ -76,6 +76,13 @@ table {
   width: 100px;
 }
 
+.logo {
+  width: 20px;
+  padding-right:3px; 
+  padding-top: 3px; 
+  display:inline-block;
+}
+
 
 
 

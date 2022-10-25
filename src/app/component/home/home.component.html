@@ -1,114 +1,58 @@
 
+      <h1>TODAY'S MATCHES</h1>
       <div class="div-football">
         <mat-card class="football-card">
           <mat-card-header>
-            <div mat-card-avatar class="football-image1"></div>
+            <div mat-card-avatar class="football-image"></div>
             <mat-card-title>Football</mat-card-title>
           </mat-card-header>
 
-          <mat-card-content>
-              <h4>Matches Today:</h4>
-            <div class="footballdivMatch0" *ngFor="let i of events">
-              <table class="football_table" style="width: 100%; height: 100%;">
-                <tbody>
-                  <tr>
-                    <td>
-                      <span class="home">{{i.homeTeam.name}}</span>
-                    </td>
-                    
-                    <td>
-                      <span class="home_away_Score">{{i.homeTeamScore}}</span>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <span class="away">{{i.visitingTeam.name}}</span>
-                    </td>
-                   
-                    <td>
-                      <span class="home_away_Score">{{i.visitingTeamScore}}</span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table> 
-            </div> 
-          </mat-card-content>
+          <div class="matches"  >
+            <div class="score-card-list">
+              <mat-card class="score-card" *ngFor="let i of events">
+                <span class="home">{{i.homeTeam.name}} <img class="logo" src={{i.homeTeam.logo}}></span>
+                <span class="score"> {{i.homeTeamScore}} : {{i.visitingTeamScore}} </span>
+                <span class="away"><img class="logo" src={{i.visitingTeam.logo}}> {{i.visitingTeam.name}}</span>
+              </mat-card>
+            </div>
+          </div>
         </mat-card>
       </div>
     
       <div class="div-NHL">
-       <mat-card class="NHL-card">
+        <mat-card class="NHL-card">
           <mat-card-header>
             <div mat-card-avatar class="NHL-image"></div>
-            <mat-card-title>NHL</mat-card-title>
+            <mat-card-title>Ice Hockey</mat-card-title>
           </mat-card-header>
-         
-          <mat-card-content>
-            <h4>Matches Today:</h4>
-            <div class="nhldivMatch0" *ngFor="let i of events">
-              <table class="football_table" style="width: 100%; height: 100%;">
-                <tbody>
-                  <tr>
-                    <td>
-                      <span class="home">{{i.homeTeam.name}}</span>
-                    </td>
-                    
-                    <td>
-                      <span class="home_away_Score">{{i.homeTeamScore}}</span>
-                    </td>
-                  </tr>
 
-                  <tr>
-                    <td>
-                      <span class="away">{{i.visitingTeam.name}}</span>
-                    </td>
-                   
-                    <td>
-                      <span class="home_away_Score">{{i.visitingTeamScore}}</span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table> 
+          <div class="matches"  >
+            <div class="score-card-list">
+              <mat-card class="score-card" *ngFor="let i of events">
+                <span class="home">{{i.homeTeam.name}} <img class="logo" src={{i.homeTeam.logo}}></span>
+                <span class="score"> {{i.homeTeamScore}} : {{i.visitingTeamScore}} </span>
+                <span class="away"><img class="logo" src={{i.visitingTeam.logo}}> {{i.visitingTeam.name}}</span>
+              </mat-card>
             </div>
-          </mat-card-content>
+          </div>
         </mat-card>
       </div>
-    
-      <div class="div-Floorball">
-        <mat-card class="Floorball-card">
-           <mat-card-header>
-             <div mat-card-avatar class="Floorball-image"></div>
-             <mat-card-title>Floorball</mat-card-title>
-           </mat-card-header>
-          
-           <mat-card-content>
-            <h4>Matches Today:</h4>
-              <div class="floorballdivMatch0" *ngFor="let i of events">
-                <table class="football_table" style="width: 100%; height: 100%;">
-                  <tbody>
-                    <tr>
-                      <td>
-                        <span class="home">{{i.homeTeam.name}}</span>
-                      </td>
-                      
-                      <td>
-                        <span class="home_away_Score">{{i.homeTeamScore}}</span>
-                      </td>
-                    </tr>
-  
-                    <tr>
-                      <td>
-                        <span class="away">{{i.visitingTeam.name}}</span>
-                      </td>
-                     
-                      <td>
-                        <span class="home_away_Score">{{i.visitingTeamScore}}</span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table> 
-              </div>
-           </mat-card-content>
-         </mat-card>
-       </div>
+
+      <div class="div-floorball">
+        <mat-card class="floorball-card">
+          <mat-card-header>
+            <div mat-card-avatar class="floorball-image"></div>
+            <mat-card-title>Floorball</mat-card-title>
+          </mat-card-header>
+
+          <div class="matches"  >
+            <div class="score-card-list">
+              <mat-card class="score-card" *ngFor="let i of events">
+                <span class="home">{{i.homeTeam.name}} <img class="logo" src={{i.homeTeam.logo}}></span>
+                <span class="score"> {{i.homeTeamScore}} : {{i.visitingTeamScore}} </span>
+                <span class="away"><img class="logo" src={{i.visitingTeam.logo}}> {{i.visitingTeam.name}}</span>
+              </mat-card>
+            </div>
+          </div>
+        </mat-card>
+      </div>
