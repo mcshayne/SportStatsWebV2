@@ -5,8 +5,7 @@
     <a tabindex="0" (click)="switchDropdownContainerVisibility()"
                     (keydown.enter)="switchDropdownContainerVisibility()">
       <i class="fas fa-medal"></i> Sports <i class="fa fa-caret-down"></i>
-      <div [ngClass]="{'dropdown-container-hidden': dropdownContainerIsVisible == false,
-                       'dropdown-container-visible': dropdownContainerIsVisible == true}">
+      <div [ngClass]="!dropdownContainerIsVisible? 'dropdown-container-hidden' : 'dropdown-container-visible'">
         <a (click)="hideDropdownContainer()" (keydown.enter)="hideDropdownContainer()"
           routerLinkActive="active" routerLink="/football"><i class="far fa-futbol"></i> Football</a>
         <a (click)="hideDropdownContainer()" (keydown.enter)="hideDropdownContainer()"
