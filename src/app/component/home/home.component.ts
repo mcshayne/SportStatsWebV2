@@ -16,7 +16,7 @@ export class HomeComponent {
   }
   
   public getData():void{
-    this.eventService.getEvents().subscribe(res => 
+    this.eventService.getEventsForHome().subscribe(res => 
       {this.events = Object.values(res)[1]
       console.log(res)})
     }

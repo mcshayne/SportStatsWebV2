@@ -1,6 +1,6 @@
 import { isNgTemplate } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { LeagueService } from 'src/app/service/league.service';
+import { EventService } from 'src/app/service/event.service';
 
 @Component({
   selector: 'app-football',
@@ -10,8 +10,18 @@ import { LeagueService } from 'src/app/service/league.service';
 export class FootballComponent {
   leaguesM: any = [];
   leaguesW: any = [];
+  events: any = [];
   sportIdentifier: string = "football";
 
-  constructor(private leagueService: LeagueService) { }
+  constructor(private eventService: EventService) { }
  
+  ngOnInit(): void {
+    this.getData();
+}
+
+public getData():void {
+  this.eventService.getEventsForFootball().subscribe(res => 
+    {this.events = Object.values(res)[1]
+    console.log(res)})
+  }
 }

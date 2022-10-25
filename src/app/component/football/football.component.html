@@ -7,3 +7,17 @@
       <app-league [sportIdentifier]=sportIdentifier></app-league>
     </div>
   </div>
+
+  <div class="matches">
+    <h1>Matches</h1>
+    <button class="buttonMatches" mat-mini-fab>All</button>
+    <button class="buttonMatches" mat-mini-fab>Upcoming</button>
+    <button class="buttonMatches" mat-mini-fab>Finished</button>
+    <div class="score-card-list">
+      <mat-card class="score-card" *ngFor="let i of events">
+        <span class="home">{{i.homeTeam.name}}</span>
+        <span class="score">{{i.homeTeamScore}} : {{i.visitingTeamScore}}</span>
+        <span class="away">{{i.visitingTeam.name}}</span>
+      </mat-card>
+    </div>
+  </div>
