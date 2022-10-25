@@ -15,6 +15,7 @@
     color: black;
     padding: 16px;
     text-decoration: none;
+    transition: 0.4s;
   }
   
   /* Active/current link */
@@ -62,6 +63,6 @@
     display: none;
   }
   .dropdown-container-visible {
-    display: display-box;
+    display: block;
     background-color: #f1f1f1;
   }
