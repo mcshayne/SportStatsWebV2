@@ -14,15 +14,18 @@ import { Output, EventEmitter } from '@angular/core';
 export class HockeyComponent {
   leagueId: number = 0;
   sports: any = [];
+
   public tableDiv:boolean = false;
   public leagueDiv:boolean = true;
   sportIdentifier: string = "hockey";
-  items = ([this.leagueId, true, false])
+
 
   constructor(private leagueService: LeagueService) { }
 
-  public switchView(id:string) {
-    console.log(id)
+  public switchView(id:number) {
+    this.leagueId = id;
+    this.tableDiv = true;
+    this.leagueDiv = false;
   }
 
   }

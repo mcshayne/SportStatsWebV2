@@ -12,6 +12,9 @@ export class FootballComponent {
   leaguesW: any = [];
   events: any = [];
   sportIdentifier: string = "football";
+  leagueId: number = 0;
+  tableDiv: boolean = false;
+  leagueDiv: boolean = true;
 
   constructor(private eventService: EventService) { }
  
@@ -23,5 +26,11 @@ public getData():void {
   this.eventService.getEventsForFootball().subscribe(res => 
     {this.events = Object.values(res)[1]
     console.log(res)})
+  }
+
+  public switchView(id:number) {
+    this.leagueId = id;
+    this.tableDiv = true;
+    this.leagueDiv = false;
   }
 }

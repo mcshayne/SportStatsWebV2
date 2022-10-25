@@ -14,11 +14,11 @@ export class LeagueComponent {
   tableDiv: boolean = false;
   leagueDiv: boolean = true;
   @Input() sportIdentifier: string = "";
-  @Output() getLeagueId = new EventEmitter<string>;
+  @Output() getLeagueId = new EventEmitter<number>();
 
-  addNewItem(value:string) {
+  addNewItem(value:number) {
     this.getLeagueId.emit(value);
-    console.log("test sh")
+    console.log('clicked ' + value) 
   }
   
   constructor(private leagueService: LeagueService) { }
@@ -37,7 +37,6 @@ export class LeagueComponent {
         this.getDataIceW();
       }
   }
-  
   public getDataFoM():void{
     this.leagueService.getFootballLeaguesM().subscribe(res => 
       {this.leaguesM = Object.values(res)[1]
@@ -91,4 +90,5 @@ export class LeagueComponent {
                   this.leaguesW = tempName;
                     console.log(res)})
               }
+  
 }
