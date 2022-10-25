@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { sport } from '../../interface/sport';
 import { hockeyService } from './hockeyService';
 import { Observable } from 'rxjs';
 import { LeagueService } from 'src/app/service/league.service';
-
+import { Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-hockey',
@@ -11,27 +10,19 @@ import { LeagueService } from 'src/app/service/league.service';
   styleUrls: ['./hockey.component.css']
 })
 
-export class HockeyComponent {
-  leaguesM: any = [];
-  leaguesW: any = [];
-  sports: any = [];
-  
-  constructor(private leagueService: LeagueService) { }
- 
-  ngOnInit(): void {
-    this.getDataM();
-    this.getDataW();
-}
 
-public getDataM():void{
-  this.leagueService.getHockeyLeaguesM().subscribe(res => 
-    {this.leaguesM = Object.values(res)[1]
-    console.log(res)})
+export class HockeyComponent {
+  leagueId: number = 0;
+  sports: any = [];
+  public tableDiv:boolean = false;
+  public leagueDiv:boolean = true;
+  sportIdentifier: string = "hockey";
+  items = ([this.leagueId, true, false])
+
+  constructor(private leagueService: LeagueService) { }
+
+  public switchView(id:string) {
+    console.log(id)
   }
 
-  public getDataW():void{
-    this.leagueService.getHockeyLeaguesW().subscribe(res => 
-      {this.leaguesW = Object.values(res)[1]
-      console.log(res)})
-    }
   }

@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiBaseUrl:'http://api.everysport.com/v1',
+  apiKey:'apikey=26192887ec48f76ab54167238ae16688'
 };
 
 /*

@@ -1,0 +1,82 @@
+
+.div-football{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+ }
+
+
+.football-card{
+  width: 900px;
+  height: 600px; 
+  border: solid gray;
+}
+  
+  .football-image1 {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/3231/3231063.png');
+    background-size: cover;
+  }
+
+  .div-NHL{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom: 20px;
+  }
+
+  .NHL-card{
+    width: 900px;
+    height: 600px;
+    border: solid gray;
+  }
+  
+  .NHL-image {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/7799/7799180.png');
+    background-size: cover;
+  }
+
+  .div-Floorball{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom: 20px;
+  }
+
+  .Floorball-card{
+    width: 900px;
+    height: 600px;
+    border: solid gray;
+  }
+
+  .Floorball-image {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/8140/8140473.png');
+    background-size: cover;
+  }
+
+  .footballdivMatch0{
+    margin-bottom: 2px;
+    border:solid gray;
+    width: 860px;
+    height: 100px;
+  }
+
+  
+  .nhldivMatch0{
+    margin-bottom: 2px;
+    border:solid gray;
+    width: 860px;
+    height: 100px;
+  }
+  
+  .floorballdivMatch0{
+    margin-bottom: 2px;
+    border:solid gray;
+    width: 860px;
+    height: 100px;
+  }
+
+  .football_table{
+    border-spacing: 40px;
+  }

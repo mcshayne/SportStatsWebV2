@@ -9,6 +9,7 @@ import { LeagueService } from 'src/app/service/league.service';
 export class FloorballComponent {
   leaguesM: any = [];
   leaguesW: any = [];
+  sportIdentifier: string = "floorball";
   
   constructor(private leagueService: LeagueService) { }
  
@@ -20,13 +21,13 @@ export class FloorballComponent {
 public getDataM():void{
   this.leagueService.getFloorballLeaguesM().subscribe(res => 
     {this.leaguesM = Object.values(res)[1]
-    console.log(res)})
+        console.log(res)})
   }
 
   public getDataW():void{
     this.leagueService.getFloorballLeaguesW().subscribe(res => 
       {this.leaguesW = Object.values(res)[1]
-      console.log(res)})
+          console.log(res)})
     }
   }
 

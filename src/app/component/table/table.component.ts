@@ -1,51 +1,97 @@
-import { Component, OnInit } from '@angular/core';
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
+import { TemplateBindingParseResult } from '@angular/compiler';
+import { Component, Input, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { getSeasonsForLeagueAndSport } from '../service/getSeasonsForLeagueAndSport';
+import { getTeamsForLeagueBySeason } from '../service/getTeamsForLeagueBySeasonId';
+import { getStandingBySeason } from '../service/getStandingsBySeason';
+import { groups } from 'src/app/interface/groups';
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
 
-export interface sportTable{
-  symbol:number;
-  Lag:string;
-  M:number;
-  V:number;
-  O:number;
-  F:number;
-  GM:number;
-  IM:number;
-  MS:number;
-  P:number;
-}
 
-const test_data:sportTable [] = [{symbol:1,Lag:'BK Häcken',M:26,V:15,O:9,F:2,GM:58,IM:32,MS:26,P:54}];
+
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
+
 export class TableComponent implements OnInit {
-  dC: string[] = ['symbol','Lag','M','V','O','F','GM','IM','MS','P'];
-  testSource = test_data;
+@Input()
+leagueId:number = 0;
+
+  dC: string[] = ['#','Lag','M','V','O','F','GM','IM','MS','P'];
+  
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
-  constructor() { }
+  displayedColumnsForSeason:string[] = ['season'];
+  displayedColumnsForTeamPosition:string[] =['symbol','Lag'];
+  displayedColumnsForStats: string[] = ['M','V','O','F','GM','IM','MS','P'];
+
+
+ 
+  seasons: any = [];
+  leagueStandings: any = [];
+  statsForTeam: any =[];
+  temp: any=[];
+
+
+
+  constructor(private getStanding: getTeamsForLeagueBySeason
+    ,private getSeasons: getSeasonsForLeagueAndSport
+    ,private getStandingBySeason: getStandingBySeason ) { }
 
   ngOnInit(): void {
+    //124439
+    this.getTableData(this.leagueId);
+  }
+
+  seasonDataSource:any;
+  teamPositionDataSource:any;
+  statsDataSource:any;
+
+  public getTableData(leagueId:number):void{   
+
+      this.getSeasons.get(leagueId).subscribe(res => {
+          this.seasons = Object.values(res)[1]
+          console.log(this.seasons)
+          this.seasonDataSource = new MatTableDataSource(this.seasons)
+
+        })
+
+        this.getStandingBySeason.get(leagueId).subscribe(res=>{
+          
+          this.leagueStandings = Object.values(res).at(1)
+          this.leagueStandings = Object.values(this.leagueStandings).at(0)
+          this.leagueStandings = Object.values(this.leagueStandings).at(0)
+          this.teamPositionDataSource = new MatTableDataSource(this.leagueStandings)
+          for(let i = 0; i < this.leagueStandings.length; i++){
+            //Set which team
+            this.temp[i] = Object.values(this.leagueStandings.at(i))
+
+
+            //Set stats
+            for(let j = 0; j < this.temp[i].length;j++){
+              if(this.temp[i].at(j).length == 8){
+                this.statsForTeam[i] = Object.values(this.temp[i].at(j))
+              }
+            }
+        
+          }
+          this.statsDataSource = new MatTableDataSource(this.statsForTeam)
+          //console.log(this.statsDataSource)
+
+          
+        })
+  }
+
+  public foobar(row: any){
+    console.log(row)
+    this.getTableData(row);
+
+  }
+
+  public selectTeam(teamName: any){
+    //Update matches according to which team was selected
+    alert(teamName)
   }
 
 }

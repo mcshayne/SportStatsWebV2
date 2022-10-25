@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container" *ngIf="tableDiv">
     <div class="row">
       <div class="col" id = "left">
         Column
       </div>
-      <div class="col-9">
-        <app-table></app-table>
+      <div class="col-9 "style="border-style:solid;">
+        <app-table [leagueId] = leagueId></app-table>
      
       </div>
       <div class="col">
@@ -13,25 +13,23 @@
      
       <ul>
         <li *ngFor="let i of sports">
-          {{i.id}} {{i.name}} 
+          {{i.id}} {{i.name}} {{i.slug}} {{i.status}}  {{i.homeTeam.name}} {{i.homeTeam.id}} {{i.homeTeam.arena.name}}
         </li>
       </ul>
 
 
     </div>
-  </div>
+</div>
 
-  <div class="container">
-    MEN  
-    <ul>
-        <li *ngFor="let m of leaguesM">
-          {{m.name}}
-        </li>
-      </ul>
-      WOMEN
-      <ul>
-        <li *ngFor="let w of leaguesW">
-          {{w.name}}
-        </li>
-      </ul>
-  </div>
+  <div class="container" *ngIf="leagueDiv">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="pb-5">
+          <h1>Ice Hockey Leagues</h1>
+        </div>
+        <app-league [sportIdentifier]=sportIdentifier>
+          (newItemEvent)="switchView($event)"
+        </app-league>
+        </div>
+      </div>
+    </div>

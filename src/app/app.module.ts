@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {MatTableModule} from '@angular/material/table'; 
 import { HttpClientModule } from '@angular/common/http';
+import { MatCardModule } from '@angular/material/card';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { FloorballComponent } from './component/floorball/floorball.component';
 import { NavbarComponent } from './component/main/navbar/navbar.component';
 import { SidebarComponent } from './component/main/sidebar/sidebar.component';
 import { TableComponent } from './component/table/table.component';
+import { LeagueComponent } from './component/league/league.component';
 
 
 
@@ -29,13 +31,16 @@ import { TableComponent } from './component/table/table.component';
     FloorballComponent,
     NavbarComponent,
     SidebarComponent,
-    TableComponent
+    TableComponent,
+    LeagueComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatTableModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
