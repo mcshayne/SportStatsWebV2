@@ -1,1 +1,32 @@
-<p>contact works!</p>
+<div class="grid-container">
+    <div class="middle-column">
+        <h1> Contact us </h1>
+        <p> The Answer to the Ultimate Question of Life, the Universe, and Everything is 42 </p>
+        <form class="contact-us" [formGroup]="form" method="post" (ngSubmit)="onSubmit()">
+            <mat-form-field>
+                <mat-label>First Name</mat-label>
+                <input matInput [formControl]="firstName" placeholder="Optional" >
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Last Name</mat-label>
+              <input matInput [formControl]="lastName" placeholder="Optional" >
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput [formControl]="email" placeholder="email@example.com" required>
+                <mat-error *ngIf="email.invalid">A valid email is required</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label> Message </mat-label>
+              <textarea matInput [formControl]="message" maxlength="512" placeholder="Don't Panic" required></textarea>
+              <mat-hint align="end"> {{message.value?.length || 0}}/512</mat-hint>
+              <mat-error *ngIf="message.invalid">A message is required</mat-error>
+            </mat-form-field>
+            <button [disabled]="submitInProgress" class="submit" type="submit">Submit</button>
+            <div [ngClass]="!responseAvailable? 'hide-me' : 'show-me'">
+              <p>{{responseMessage}}</p>
+            </div>
+            <input [formControl]="spamTrap" class="hide-me" type="text" />
+          </form>
+    </div>
+</div>
