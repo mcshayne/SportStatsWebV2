@@ -19,14 +19,14 @@ export class FootballComponent {
   constructor(private eventService: EventService) { }
  
   ngOnInit(): void {
-    this.getData();
+    //this.getData();
 }
 
-public getData():void {
+/* public getData():void {
   this.eventService.getEventsForFootball().subscribe(res => 
     {this.events = Object.values(res)[1]
     console.log(res)})
-  }
+  } */
 
   public switchView(id:number) {
     this.leagueId = id;

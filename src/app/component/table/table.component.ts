@@ -5,6 +5,7 @@ import { getSeasonsForLeagueAndSport } from '../service/getSeasonsForLeagueAndSp
 import { getTeamsForLeagueBySeason } from '../service/getTeamsForLeagueBySeasonId';
 import { getStandingBySeason } from '../service/getStandingsBySeason';
 import { groups } from 'src/app/interface/groups';
+import { EventService } from 'src/app/service/event.service';
 
 
 
@@ -19,12 +20,14 @@ export class TableComponent implements OnInit {
 @Input()
 leagueId:number = 0;
 
-  dC: string[] = ['#','Lag','M','V','O','F','GM','IM','MS','P'];
+  //Could change to shorter names and opt in for hovering explaination of table headers.
+  dC: string[] = ['#','Team','Played','Won','Drawn','Lost','For','Against','GD','P'];
+  tableTitles: string[] = ['Place','Team','Played','Won games','Drawn games','Lost games','Goals for','Goals against','Goal difference','Points'];
   
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   displayedColumnsForSeason:string[] = ['season'];
-  displayedColumnsForTeamPosition:string[] =['symbol','Lag'];
-  displayedColumnsForStats: string[] = ['M','V','O','F','GM','IM','MS','P'];
+  //displayedColumnsForTeamPosition:string[] =['symbol','Lag'];
+  //displayedColumnsForStats: string[] = ['M','V','O','F','GM','IM','MS','P'];
 
 
  
@@ -32,22 +35,35 @@ leagueId:number = 0;
   leagueStandings: any = [];
   statsForTeam: any =[];
   temp: any=[];
+  events: any = [];
 
 
 
   constructor(private getStanding: getTeamsForLeagueBySeason
     ,private getSeasons: getSeasonsForLeagueAndSport
-    ,private getStandingBySeason: getStandingBySeason ) { }
+    ,private getStandingBySeason: getStandingBySeason
+    ,private eventService: EventService) { }
 
   ngOnInit(): void {
     //124439
-    this.getTableData(this.leagueId);
+    this.refreshViewData(this.leagueId)
+  }
+
+  public refreshViewData(leagueid:number){
+    this.getTableData(leagueid);
+    this.getData(leagueid);
   }
 
   seasonDataSource:any;
   teamPositionDataSource:any;
   statsDataSource:any;
-
+        
+  public getData(leagueId:number):void {
+    this.eventService.getEventsForFootball(leagueId).subscribe(res => 
+      {this.events = Object.values(res)[1]
+      console.log(res)})
+    }
+  
   public getTableData(leagueId:number):void{   
 
       this.getSeasons.get(leagueId).subscribe(res => {
@@ -85,7 +101,7 @@ leagueId:number = 0;
 
   public foobar(row: any){
     console.log(row)
-    this.getTableData(row);
+    this.refreshViewData(row)
 
   }
 

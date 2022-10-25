@@ -3,25 +3,25 @@
   <div class="row">
 
   <div class="col" >
+    
     <table class="table table-hover">
-      <thead>
-      <tr>
-        <th scope="col" *ngFor="let i of dC">
-          {{i}}
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let i of leagueStandings; let in = index" >
-        <td scope="row">{{i.position}} </td>
-        <td (click) = "selectTeam(i.team.name)">{{i.team.name}}</td>
-        <td *ngFor="let x of statsForTeam[in] ">{{x.value}}  </td>
-      </tr>
-    </tbody>
+        <thead>
+        <tr>
+          <th scope="col" [title]=tableTitles[j] *ngFor="let i of dC;let j = index">
+            {{i}}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let i of leagueStandings; let in = index" >
+          <td scope="row">{{i.position}} </td>
+          <td (click) = "selectTeam(i.team.name)">{{i.team.name}}</td>
+          <td *ngFor="let x of statsForTeam[in] ">{{x.value}}  </td>
+        </tr>
+      </tbody>
     </table>
-    
-    
   </div>
+
   <div class="col-1">
     
   
@@ -45,3 +45,15 @@
 </div>
 </div>
 
+<div class="matches"  >
+  <h1>Matches</h1>
+  <button class="buttonMatches" mat-mini-fab>All</button>
+  <button class="buttonMatches" mat-mini-fab>Upcoming</button>
+  <button class="buttonMatches" mat-mini-fab>Finished</button>
+  <div class="score-card-list">
+    <mat-card class="score-card" *ngFor="let i of events">
+      <span class="home">{{i.homeTeam.name}}</span>
+      <span class="score"> {{i.homeTeamScore}} : {{i.visitingTeamScore}} </span>
+      <span class="away">{{i.visitingTeam.name}}</span>
+    </mat-card>
+  </div>
