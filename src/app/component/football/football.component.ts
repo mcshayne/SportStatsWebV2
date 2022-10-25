@@ -1,6 +1,6 @@
 import { isNgTemplate } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { LeagueService } from 'src/app/service/league.service';
+import { EventService } from 'src/app/service/event.service';
 
 @Component({
   selector: 'app-football',
@@ -8,10 +8,20 @@ import { LeagueService } from 'src/app/service/league.service';
   styleUrls: ['./football.component.css']
 })
 export class FootballComponent {
-  leaguesM: any = [];
-  leaguesW: any = [];
-  sportIdentifier: string = "football";
 
-  constructor(private leagueService: LeagueService) { }
+  sportIdentifier: string = "football";
+  leagueId: number = 0;
+  tableDiv: boolean = false;
+  leagueDiv: boolean = true;
+
+  constructor(private eventService: EventService) { }
  
+  ngOnInit(): void {
+}
+
+  public switchView(id:number) {
+    this.leagueId = id;
+    this.tableDiv = true;
+    this.leagueDiv = false;
+  }
 }

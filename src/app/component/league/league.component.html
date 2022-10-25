@@ -1,11 +1,11 @@
 <div class="row">
     <div class="col-md-6"><h2>MEN</h2>
-      <li *ngFor="let m of leaguesM" (click) = "addNewItem(m[0])">
+      <li *ngFor="let m of leaguesM" (click) = "addNewItem(m[1])">
         {{m[0]}}
       </li>
     </div>
     <div class="col-md-6"><h2>WOMEN</h2>
-      <li *ngFor="let w of leaguesW">
+      <li *ngFor="let w of leaguesW" (click) = "addNewItem(w[1])">
         {{w[0]}}
       </li>
     </div>

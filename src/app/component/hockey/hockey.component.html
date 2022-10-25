@@ -10,14 +10,6 @@
       <div class="col">
         Column
       </div>
-     
-      <ul>
-        <li *ngFor="let i of sports">
-          {{i.id}} {{i.name}} {{i.slug}} {{i.status}}  {{i.homeTeam.name}} {{i.homeTeam.id}} {{i.homeTeam.arena.name}}
-        </li>
-      </ul>
-
-
     </div>
 </div>
 
@@ -27,8 +19,12 @@
         <div class="pb-5">
           <h1>Ice Hockey Leagues</h1>
         </div>
-        <app-league [sportIdentifier]=sportIdentifier>
-          (newItemEvent)="switchView($event)"
+
+        <app-league 
+        [sportIdentifier]=sportIdentifier
+        (getLeagueId) = "switchView($event)"
+       >
+
         </app-league>
         </div>
       </div>

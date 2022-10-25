@@ -10,6 +10,9 @@ export class FloorballComponent {
   leaguesM: any = [];
   leaguesW: any = [];
   sportIdentifier: string = "floorball";
+  leagueId: number = 0;
+  tableDiv: boolean = false;
+  leagueDiv: boolean = true;
   
   constructor(private leagueService: LeagueService) { }
  
@@ -28,6 +31,12 @@ public getDataM():void{
     this.leagueService.getFloorballLeaguesW().subscribe(res => 
       {this.leaguesW = Object.values(res)[1]
           console.log(res)})
+    }
+
+    public switchView(id:number) {
+      this.leagueId = id;
+      this.tableDiv = true;
+      this.leagueDiv = false;
     }
   }
 

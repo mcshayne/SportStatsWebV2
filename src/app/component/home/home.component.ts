@@ -7,17 +7,32 @@ import { EventService } from 'src/app/service/event.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  events: any = [] ;
+  footballevents: any = [] ;
+  hockeyevents: any = [] ;
+  floorballevents: any = [] ;
 
   constructor(private eventService: EventService) { }
  
   ngOnInit(): void {
-      this.getData();
+      this.getFootballData();
+      this.getHockeyData();
+      this.getFloorballData();
   }
   
-  public getData():void{
-    this.eventService.getEvents().subscribe(res => 
-      {this.events = Object.values(res)[1]
+  public getFootballData():void{
+    this.eventService.getEventsForHome(119512).subscribe(res => 
+      {this.footballevents = Object.values(res)[1]
+      console.log(res)})
+    }
+  public getHockeyData():void{
+    this.eventService.getEventsForHome(125472).subscribe(res => 
+      {this.hockeyevents = Object.values(res)[1]
+      console.log(res)})
+    }
+  public getFloorballData():void{
+    this.eventService.getEventsForHome(121413).subscribe(res => 
+      {this.floorballevents = Object.values(res)[1]
       console.log(res)})
     }
 }
+

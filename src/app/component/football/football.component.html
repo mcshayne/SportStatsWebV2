@@ -1,9 +1,48 @@
-<div class="container">
+<div class="container" *ngIf="tableDiv">
+  <div class="row">
+    <div class="col" id = "left">
+      Column
+    </div>
+    <div class="col-9 "style="border-style:solid;">
+      <app-table [leagueId] = leagueId></app-table>
+   
+    </div>
+    <div class="col">
+      Column
+    </div>
+   
+<!--       <ul>
+      <li *ngFor="let i of sports">
+        {{i.id}} {{i.name}} {{i.slug}} {{i.status}}  {{i.homeTeam.name}} {{i.homeTeam.id}} {{i.homeTeam.arena.name}}
+      </li>
+    </ul> -->
+
+
+  </div>
+</div>
+<div class="container" *ngIf="leagueDiv">
   <div class="row">
     <div class="col-md-12">
       <div class="pb-5">
         <h1>Football Leagues</h1>
       </div>
-      <app-league [sportIdentifier]=sportIdentifier></app-league>
+      <app-league 
+      [sportIdentifier]=sportIdentifier
+      (getLeagueId) = "switchView($event)"
+      ></app-league>
     </div>
   </div>
+
+<!--   <div class="matches"  *ngIf="tableDiv">
+    <h1>Matches</h1>
+    <button class="buttonMatches" mat-mini-fab>All</button>
+    <button class="buttonMatches" mat-mini-fab>Upcoming</button>
+    <button class="buttonMatches" mat-mini-fab>Finished</button>
+    <div class="score-card-list">
+      <mat-card class="score-card" *ngFor="let i of events">
+        <span class="home">{{i.homeTeam.name}}</span>
+        <span class="score">{{i.homeTeamScore}} : {{i.visitingTeamScore}}</span>
+        <span class="away">{{i.visitingTeam.name}}</span>
+      </mat-card>
+    </div>
+  </div> -->

@@ -5,6 +5,7 @@ import { getSeasonsForLeagueAndSport } from '../service/getSeasonsForLeagueAndSp
 import { getTeamsForLeagueBySeason } from '../service/getTeamsForLeagueBySeasonId';
 import { getStandingBySeason } from '../service/getStandingsBySeason';
 import { groups } from 'src/app/interface/groups';
+import { EventService } from 'src/app/service/event.service';
 
 
 
@@ -19,12 +20,12 @@ export class TableComponent implements OnInit {
 @Input()
 leagueId:number = 0;
 
-  dC: string[] = ['#','Lag','M','V','O','F','GM','IM','MS','P'];
+  //Could change to shorter names and opt in for hovering explaination of table headers.
+  dC: string[] = ['#','Team','Played','Won','Drawn','Lost','For','Against','GD','P'];
+  tableTitles: string[] = ['Place','Team','Played','Won games','Drawn games','Lost games','Goals for','Goals against','Goal difference','Points'];
   
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   displayedColumnsForSeason:string[] = ['season'];
-  displayedColumnsForTeamPosition:string[] =['symbol','Lag'];
-  displayedColumnsForStats: string[] = ['M','V','O','F','GM','IM','MS','P'];
 
 
  
@@ -32,22 +33,34 @@ leagueId:number = 0;
   leagueStandings: any = [];
   statsForTeam: any =[];
   temp: any=[];
+  events: any = [];
 
 
 
   constructor(private getStanding: getTeamsForLeagueBySeason
     ,private getSeasons: getSeasonsForLeagueAndSport
-    ,private getStandingBySeason: getStandingBySeason ) { }
+    ,private getStandingBySeason: getStandingBySeason
+    ,private eventService: EventService) { }
 
   ngOnInit(): void {
-    //124439
-    this.getTableData(this.leagueId);
+    this.refreshViewData(this.leagueId)
+  }
+
+  public refreshViewData(leagueid:number){
+    this.getTableData(leagueid);
+    this.getMatches(leagueid);
   }
 
   seasonDataSource:any;
   teamPositionDataSource:any;
   statsDataSource:any;
-
+        
+  public getMatches(leagueId:number):void {
+    this.eventService.getEventsForLeagueFinishedUpcoming(leagueId,'ALL').subscribe(res => 
+      {this.events = Object.values(res)[1]
+      console.log(res)})
+    }
+  
   public getTableData(leagueId:number):void{   
 
       this.getSeasons.get(leagueId).subscribe(res => {
@@ -76,17 +89,21 @@ leagueId:number = 0;
             }
         
           }
-          this.statsDataSource = new MatTableDataSource(this.statsForTeam)
-          //console.log(this.statsDataSource)
-
-          
+          this.statsDataSource = new MatTableDataSource(this.statsForTeam)          
         })
   }
 
-  public foobar(row: any){
+  public changeSeason(row: any){
     console.log(row)
-    this.getTableData(row);
+    this.leagueId = row;
+    this.refreshViewData(row)
 
+  }
+  public setMatches(status:string):void{
+    console.log("hello")
+    this.eventService.getEventsForLeagueFinishedUpcoming(this.leagueId,status).subscribe(res => 
+      {this.events = Object.values(res)[1]
+      console.log(res)})
   }
 
   public selectTeam(teamName: any){
