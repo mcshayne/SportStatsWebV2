@@ -36,7 +36,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let i of seasons; let in = index" >
-      <td scope="row" (click) = "foobar(i.id)">{{i.season.startYear}} </td>
+      <td scope="row" (click) = "changeSeason(i.id)">{{i.season.startYear}} </td>
     </tr>
   </tbody>
   </table>
@@ -47,9 +47,9 @@
 
 <div class="matches"  >
   <h1>Matches</h1>
-  <button class="buttonMatches" mat-mini-fab>All</button>
-  <button class="buttonMatches" mat-mini-fab>Upcoming</button>
-  <button class="buttonMatches" mat-mini-fab>Finished</button>
+  <button class="buttonMatches" mat-mini-fab (click)="setMatches('ALL')">All</button>
+  <button class="buttonMatches" mat-mini-fab (click)="setMatches('UPCOMING')">Upcoming</button>
+  <button class="buttonMatches" mat-mini-fab (click)="setMatches('FINISHED')">Finished</button>
   <div class="score-card-list">
     <mat-card class="score-card" *ngFor="let i of events">
       <span class="home">{{i.homeTeam.name}} <img class="logo" src={{i.homeTeam.logo}}></span>

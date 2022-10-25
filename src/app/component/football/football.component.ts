@@ -8,9 +8,7 @@ import { EventService } from 'src/app/service/event.service';
   styleUrls: ['./football.component.css']
 })
 export class FootballComponent {
-  leaguesM: any = [];
-  leaguesW: any = [];
-  events: any = [];
+
   sportIdentifier: string = "football";
   leagueId: number = 0;
   tableDiv: boolean = false;
@@ -19,14 +17,7 @@ export class FootballComponent {
   constructor(private eventService: EventService) { }
  
   ngOnInit(): void {
-    //this.getData();
 }
-
-/* public getData():void {
-  this.eventService.getEventsForFootball().subscribe(res => 
-    {this.events = Object.values(res)[1]
-    console.log(res)})
-  } */
 
   public switchView(id:number) {
     this.leagueId = id;

@@ -26,8 +26,6 @@ leagueId:number = 0;
   
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   displayedColumnsForSeason:string[] = ['season'];
-  //displayedColumnsForTeamPosition:string[] =['symbol','Lag'];
-  //displayedColumnsForStats: string[] = ['M','V','O','F','GM','IM','MS','P'];
 
 
  
@@ -45,21 +43,20 @@ leagueId:number = 0;
     ,private eventService: EventService) { }
 
   ngOnInit(): void {
-    //124439
     this.refreshViewData(this.leagueId)
   }
 
   public refreshViewData(leagueid:number){
     this.getTableData(leagueid);
-    this.getData(leagueid);
+    this.getMatches(leagueid);
   }
 
   seasonDataSource:any;
   teamPositionDataSource:any;
   statsDataSource:any;
         
-  public getData(leagueId:number):void {
-    this.eventService.getEventsForFootball(leagueId).subscribe(res => 
+  public getMatches(leagueId:number):void {
+    this.eventService.getEventsForLeagueFinishedUpcoming(leagueId,'ALL').subscribe(res => 
       {this.events = Object.values(res)[1]
       console.log(res)})
     }
@@ -92,17 +89,21 @@ leagueId:number = 0;
             }
         
           }
-          this.statsDataSource = new MatTableDataSource(this.statsForTeam)
-          //console.log(this.statsDataSource)
-
-          
+          this.statsDataSource = new MatTableDataSource(this.statsForTeam)          
         })
   }
 
-  public foobar(row: any){
+  public changeSeason(row: any){
     console.log(row)
+    this.leagueId = row;
     this.refreshViewData(row)
 
+  }
+  public setMatches(status:string):void{
+    console.log("hello")
+    this.eventService.getEventsForLeagueFinishedUpcoming(this.leagueId,status).subscribe(res => 
+      {this.events = Object.values(res)[1]
+      console.log(res)})
   }
 
   public selectTeam(teamName: any){

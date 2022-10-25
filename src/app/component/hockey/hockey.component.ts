@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { hockeyService } from './hockeyService';
 import { Observable } from 'rxjs';
 import { LeagueService } from 'src/app/service/league.service';
-import { Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-hockey',

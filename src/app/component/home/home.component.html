@@ -9,7 +9,7 @@
 
           <div class="matches"  >
             <div class="score-card-list">
-              <mat-card class="score-card" *ngFor="let i of events">
+              <mat-card class="score-card" *ngFor="let i of footballevents">
                 <span class="home">{{i.homeTeam.name}} <img class="logo" src={{i.homeTeam.logo}}></span>
                 <span class="score"> {{i.homeTeamScore}} : {{i.visitingTeamScore}} </span>
                 <span class="away"><img class="logo" src={{i.visitingTeam.logo}}> {{i.visitingTeam.name}}</span>
@@ -28,7 +28,7 @@
 
           <div class="matches"  >
             <div class="score-card-list">
-              <mat-card class="score-card" *ngFor="let i of events">
+              <mat-card class="score-card" *ngFor="let i of hockeyevents">
                 <span class="home">{{i.homeTeam.name}} <img class="logo" src={{i.homeTeam.logo}}></span>
                 <span class="score"> {{i.homeTeamScore}} : {{i.visitingTeamScore}} </span>
                 <span class="away"><img class="logo" src={{i.visitingTeam.logo}}> {{i.visitingTeam.name}}</span>
@@ -47,7 +47,7 @@
 
           <div class="matches"  >
             <div class="score-card-list">
-              <mat-card class="score-card" *ngFor="let i of events">
+              <mat-card class="score-card" *ngFor="let i of floorballevents">
                 <span class="home">{{i.homeTeam.name}} <img class="logo" src={{i.homeTeam.logo}}></span>
                 <span class="score"> {{i.homeTeamScore}} : {{i.visitingTeamScore}} </span>
                 <span class="away"><img class="logo" src={{i.visitingTeam.logo}}> {{i.visitingTeam.name}}</span>
