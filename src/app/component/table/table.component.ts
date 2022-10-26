@@ -1,9 +1,9 @@
 import { TemplateBindingParseResult } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { getSeasonsForLeagueAndSport } from '../service/getSeasonsForLeagueAndSport';
-import { getTeamsForLeagueBySeason } from '../service/getTeamsForLeagueBySeasonId';
-import { getStandingBySeason } from '../service/getStandingsBySeason';
+import { getSeasonsForLeagueAndSport } from '../../service/getSeasonsForLeagueAndSport';
+import { getTeamsForLeagueBySeason } from '../../service/getTeamsForLeagueBySeasonId';
+import { getStandingBySeason } from '../../service/getStandingsBySeason';
 import { groups } from 'src/app/interface/groups';
 import { EventService } from 'src/app/service/event.service';
 
