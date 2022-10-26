@@ -6,9 +6,11 @@ import { FootballComponent } from './component/football/football.component';
 import { HockeyComponent } from './component/hockey/hockey.component';
 import { HomeComponent } from './component/home/home.component';
 import { MainComponent } from './component/main/main.component';
+import { SportComponent } from './component/sport/sport.component';
 
 const routes: Routes = [
   {path:'', component: MainComponent},
+  {path:'sport/:sportName',component:SportComponent},
   {path:'home', component: HomeComponent},
   {path:'football', component: FootballComponent},
   {path:'hockey', component: HockeyComponent},

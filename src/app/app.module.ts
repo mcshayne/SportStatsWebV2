@@ -21,6 +21,7 @@ import { NavbarComponent } from './component/main/navbar/navbar.component';
 import { SidebarComponent } from './component/main/sidebar/sidebar.component';
 import { TableComponent } from './component/table/table.component';
 import { LeagueComponent } from './component/league/league.component';
+import { SportComponent } from './component/sport/sport.component';
 
 
 
@@ -38,6 +39,7 @@ import { LeagueComponent } from './component/league/league.component';
     SidebarComponent,
     TableComponent,
     LeagueComponent,
+    SportComponent,
     
   ],
   imports: [
