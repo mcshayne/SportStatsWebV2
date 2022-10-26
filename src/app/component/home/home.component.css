@@ -1,123 +1,171 @@
+@media only screen and (max-width: 1122px) {
+  .matches {
+    font-size: small;
+  }
+}
 
-.div-football{
-  display:flex;
-  align-items:center;
-  justify-content:center;
+@media only screen and (max-width: 700px) {
+
+  .matches {
+    font-size: x-small;
+  }
+
+}
+
+@media only screen and (min-width: 1122px) {
+
+  .div-football {
+    margin-left: 200px;
+    margin-right: 200px;
+  }
+
+  .div-NHL {
+    margin-left: 200px;
+    margin-right: 200px;
+  }
+
+  .div-floorball {
+    margin-left: 200px;
+    margin-right: 200px;
+  }
+
+
+}
+
+@media only screen and (min-width: 700px) {
+  .div-football {
+    margin-left: 200px;
+  }
+
+  .div-NHL {
+    margin-left: 200px;
+  }
+
+  .div-floorball {
+    margin-left: 200px;
+  }
+
+}
+
+.div-football {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 40px;
   margin-bottom: 20px;
- }
+}
 
 
-.football-card{
+.football-card {
   width: auto;
-  height: auto; 
+  height: auto;
   border: solid gray;
 }
-  
-  .football-image {
-    background-image: url('https://cdn-icons-png.flaticon.com/512/3231/3231063.png');
-    background-size: cover;
-  }
 
-  .div-NHL{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    margin-bottom: 20px;
-  }
+.football-image {
+  background-image: url('https://cdn-icons-png.flaticon.com/512/3231/3231063.png');
+  background-size: cover;
+}
 
-  .NHL-card{
-    width: auto;
-    height: auto; 
-    border: solid gray;
-  }
-  
-  .NHL-image {
-    background-image: url('https://cdn-icons-png.flaticon.com/512/7799/7799180.png');
-    background-size: cover;
-  }
+.div-NHL {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
 
-  .div-floorball{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    margin-bottom: 20px;
-  }
+.NHL-card {
+  width: auto;
+  height: auto;
+  border: solid gray;
+}
 
-  .floorball-card{
-    width: auto;
-    height: auto; 
-    border: solid gray;
-  }
+.NHL-image {
+  background-image: url('https://cdn-icons-png.flaticon.com/512/7799/7799180.png');
+  background-size: cover;
+}
 
-  .floorball-image {
-    background-image: url('https://cdn-icons-png.flaticon.com/512/8140/8140473.png');
-    background-size: cover;
-  }
+.div-floorball {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
 
-  .footballdivMatch0{
-    margin-bottom: 2px;
-    border:solid gray;
-    width: auto;
-    height: auto;
-  }
+.floorball-card {
+  width: auto;
+  height: auto;
+  border: solid gray;
+}
 
-  
-  .nhldivMatch0{
-    margin-bottom: 2px;
-    border:solid gray;
-    width: 860px;
-    height: 100px;
-  }
-  
-  .floorballdivMatch0{
-    margin-bottom: 2px;
-    border:solid gray;
-    width: 860px;
-    height: 100px;
-  }
+.floorball-image {
+  background-image: url('https://cdn-icons-png.flaticon.com/512/8140/8140473.png');
+  background-size: cover;
+}
 
-  .football_table{
-    border-spacing: 40px;
-  }
+.footballdivMatch0 {
+  margin-bottom: 2px;
+  border: solid gray;
+  width: auto;
+  height: auto;
+}
 
-  .score-card-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .score-card {
-    width: 800px;
-    display: flex !important;
-    margin-top: 10px;
-  }
-  
-  .home {
-    flex: 1;
-    text-align: right;
-  }
-  
-  .away {
-    flex: 1;
-    text-align: left;
-  }
-  
-  .score {
-    width: 100px;
-  }
 
-  .date {
-    text-align: right;
-  }
+.nhldivMatch0 {
+  margin-bottom: 2px;
+  border: solid gray;
+  width: auto;
+  height: 100px;
+}
 
-  .line-break {
-    width: 100%;
-  }
-  
-  .logo {
-    width: 20px;
-    padding-right: 3px; 
-    padding-top: 3px; 
-    display: inline-block;
-  }
+.floorballdivMatch0 {
+  margin-bottom: 2px;
+  border: solid gray;
+  width: auto;
+  height: 100px;
+}
+
+.football_table {
+  border-spacing: 40px;
+}
+
+.score-card-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.score-card {
+  width: 100%;
+  display: flex !important;
+  margin-top: 10px;
+}
+
+.home {
+  flex: 1;
+  text-align: right;
+}
+
+.away {
+  flex: 1;
+  text-align: left;
+}
+
+.score {
+  width: 100px;
+}
+
+.date {
+  text-align: right;
+}
+
+.line-break {
+  width: 100%;
+}
+
+.logo {
+  width: 20px;
+  padding-right: 3px;
+  padding-top: 3px;
+  display: inline-block;
+}

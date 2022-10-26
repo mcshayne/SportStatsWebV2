@@ -1,6 +1,25 @@
 table {
     width: 100%;
+
   }
+  @media only screen and (max-width: 900px) {
+    .table {
+      font-size: small;
+    }
+    .matches{
+      font-size: small;
+    }
+  }
+  @media only screen and (max-width: 700px) {
+    .table {
+      font-size: x-small;
+    }
+    .matches{
+      font-size: x-small;
+    }
+
+  }
+  
 
 
 .buttonMatches {
@@ -15,7 +34,7 @@ table {
 }
 
 .score-card {
-  width: 800px;
+  width: 100%;
   display: flex !important;
   margin-top: 10px;
 }
