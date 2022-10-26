@@ -20,7 +20,7 @@
   
   /* Active/current link */
   .sidebar a.active {
-    background-color: #04AA6D;
+    background-color: #04AA6D; /* NOTE: Same as contact.component.css .mat-spinner circle (update both to keep them matching)*/
     color: white;
   }
   
