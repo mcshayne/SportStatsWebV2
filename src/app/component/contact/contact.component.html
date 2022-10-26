@@ -23,6 +23,7 @@
               <mat-error *ngIf="message.invalid">A message is required</mat-error>
             </mat-form-field>
             <button [disabled]="submitInProgress" class="submit" type="submit">Submit</button>
+            <mat-spinner diameter="55" style="margin:0 auto;" [ngClass]="{'hide-me' : !submitInProgress || responseAvailable}"></mat-spinner>
             <div [ngClass]="!responseAvailable? 'hide-me' : 'show-me'">
               <p>{{responseMessage}}</p>
             </div>

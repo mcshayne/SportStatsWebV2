@@ -26,6 +26,10 @@ button:hover:enabled {
     color: white;
 }
 
+:host ::ng-deep .mat-spinner circle {   
+    stroke: #04AA6D; /* NOTE: Same as sidebar.component.css .sidebar a.active (update both to keep them matching)*/
+}
+
 /* Response message and spam trap */
 .hide-me {
 	display: none;
