@@ -1,34 +1,25 @@
 <div class="container" *ngIf="tableDiv">
   <div class="row">
-    <div class="col" id = "left">
+    <div class="col" id="left">
       Column
     </div>
-    <div class="col-9 "style="border-style:solid;">
-      <app-table [leagueId] = leagueId></app-table>
-   
+    <div class="col-9 " style="border-style:solid;">
+      <app-table [leagueId]=leagueId></app-table>
+
     </div>
     <div class="col">
       Column
     </div>
-   
-<!--       <ul>
-      <li *ngFor="let i of sports">
-        {{i.id}} {{i.name}} {{i.slug}} {{i.status}}  {{i.homeTeam.name}} {{i.homeTeam.id}} {{i.homeTeam.arena.name}}
-      </li>
-    </ul> -->
-
-
   </div>
 </div>
+
 <div class="container" *ngIf="leagueDiv">
   <div class="row">
     <div class="col-md-12">
       <div class="pb-5">
         <h1>Floorball Leagues</h1>
       </div>
-      <app-league 
-      [sportIdentifier]=sportIdentifier
-      (getLeagueId) = "switchView($event)"
-      ></app-league>
+      <app-league [sportIdentifier]=sportIdentifier (getLeagueId)="switchView($event)"></app-league>
     </div>
   </div>
+</div>

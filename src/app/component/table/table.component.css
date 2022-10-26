@@ -2,48 +2,6 @@ table {
     width: 100%;
   }
 
-  .th-right{
-    text-align: right;
-  }
-
-.mat-row:hover {
-  background-color: rgb(228, 228, 228);
-}
-.mat-column-symbol{
-  text-align: center;
-}
-
-.mat-column-Lag{
-  text-align: center;
-}
-.mat-column-M{
-  text-align: center;
-}
-
-.mat-column-V{
-  text-align: center;
-}
-
-.mat-column-O{
-  text-align: center;
-}
-
-.mat-column-F{
-  text-align: center;
-}
-
-.mat-column-GM{
-  text-align: center;
-}
-.mat-column-IM{
-  text-align: center;
-}
-.mat-column-MS{
-  text-align: center;
-}
-.mat-column-P{
-  text-align: center;
-}
 
 .buttonMatches {
   margin-left: 20px;

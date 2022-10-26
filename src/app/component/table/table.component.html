@@ -1,51 +1,46 @@
-
 <div class="container">
   <div class="row">
 
-  <div class="col" >
-    
-    <table class="table table-hover">
+    <div class="col">
+
+      <table class="table table-hover">
         <thead>
-        <tr>
-          <th scope="col" [title]=tableTitles[j] *ngFor="let i of dC;let j = index">
-            {{i}}
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let i of leagueStandings; let in = index" >
-          <td scope="row">{{i.position}} </td>
-          <td (click) = "selectTeam(i.team.name)">{{i.team.name}}</td>
-          <td *ngFor="let x of statsForTeam[in] ">{{x.value}}  </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+          <tr>
+            <th scope="col" [title]=tableTitles[j] *ngFor="let i of dC;let j = index">
+              {{i}}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of leagueStandings; let in = index">
+            <td scope="row">{{i.position}} </td>
+            <td (click)="selectTeam(i.team.name)">{{i.team.name}}</td>
+            <td *ngFor="let x of statsForTeam[in] ">{{x.value}} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-  <div class="col-1">
-    
-  
-
-  <table class="table table-hover">
-    <thead>
-    <tr>
-      <th scope="col">
-        Season
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let i of seasons; let in = index" >
-      <td scope="row" (click) = "changeSeason(i.id)">{{i.season.startYear}} </td>
-    </tr>
-  </tbody>
-  </table>
-  
+    <div class="col-1">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">
+              Season
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of seasons; let in = index">
+            <td scope="row" (click)="changeSeason(i.id)">{{i.season.startYear}} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
-</div>
 
-<div class="matches"  >
+<div class="matches">
   <h1>Matches</h1>
   <button class="buttonMatches" mat-mini-fab (click)="setMatches('ALL')">All</button>
   <button class="buttonMatches" mat-mini-fab (click)="setMatches('UPCOMING')">Upcoming</button>
@@ -57,3 +52,4 @@
       <span class="away"><img class="logo" src={{i.visitingTeam.logo}}> {{i.visitingTeam.name}}</span>
     </mat-card>
   </div>
+</div>
