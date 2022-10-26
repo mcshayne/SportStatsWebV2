@@ -10,8 +10,8 @@ export interface event{
     visitingTeam:visitingTeam;
     homeTeamScore:number;
     visitingTeamScore:number;
-    startDate:string;
-    endDate:string;
+    startDate:number;
+    endDate:number;
     league:league;
     sport:sport;
   }
