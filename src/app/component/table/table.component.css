@@ -34,6 +34,10 @@ table {
   width: 100px;
 }
 
+.date {
+  text-align: right;
+}
+
 .logo {
   width: 20px;
   padding-right:3px; 
