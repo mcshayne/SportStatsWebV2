@@ -12,7 +12,7 @@ export class EventService {
   constructor(private http: HttpClient) { }
   
     public getEventsForHome(leagueId:number):Observable<Event[]>{
-      return this.http.get<Event[]>(`${this.apiServerUrl}/leagues/${leagueId}/events/?${this.apiServerKey}&limit=5`)
+      return this.http.get<Event[]>(`${this.apiServerUrl}/leagues/${leagueId}/events/?sort=startDate%3Adesc&status=FINISHED&${this.apiServerKey}&limit=5`)
 
     }
     
