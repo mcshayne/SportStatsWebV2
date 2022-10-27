@@ -4,7 +4,8 @@
     padding: 0;
     width: 200px;
     background-color: #f1f1f1;
-    position: fixed;
+    position: sticky;
+    top:0;
     height: 100%;
     overflow: auto;
   }
@@ -29,7 +30,7 @@
     background-color: #555;
     color: white;
   }
-  
+
   /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
   div.content {
     margin-left: 200px;
