@@ -41,8 +41,7 @@ export class LeagueComponent {
     this.leagueService.getFootballLeaguesM().subscribe(res => {
       this.leaguesM = Object.values(res)[1]
       const key = 'name';
-      let tempName = new Set(new Map(this.leaguesM.map((item: any) => [item[key], item.id])))
-      this.leaguesM = tempName;
+      this.leaguesM = new Set(new Map(this.leaguesM.map((item: any) => [item[key], item.id])));
       console.log(res)
     })
   }
@@ -51,8 +50,7 @@ export class LeagueComponent {
     this.leagueService.getFootballLeaguesW().subscribe(res => {
       this.leaguesW = Object.values(res)[1]
       const key = 'name';
-      let tempName = new Set(new Map(this.leaguesW.map((item: any) => [item[key], item.id])))
-      this.leaguesW = tempName;
+      this.leaguesW = new Set(new Map(this.leaguesW.map((item: any) => [item[key], item.id])));
       console.log(res)
     })
   }
@@ -61,8 +59,7 @@ export class LeagueComponent {
     this.leagueService.getFloorballLeaguesM().subscribe(res => {
       this.leaguesM = Object.values(res)[1]
       const key = 'name';
-      let tempName = new Set(new Map(this.leaguesM.map((item: any) => [item[key], item.id])))
-      this.leaguesM = tempName;
+      this.leaguesM =  new Set(new Map(this.leaguesM.map((item: any) => [item[key], item.id])));
       console.log(res)
     })
   }
@@ -71,8 +68,7 @@ export class LeagueComponent {
     this.leagueService.getFloorballLeaguesW().subscribe(res => {
       this.leaguesW = Object.values(res)[1]
       const key = 'name';
-      let tempName = new Set(new Map(this.leaguesW.map((item: any) => [item[key], item.id])))
-      this.leaguesW = tempName;
+      this.leaguesW = new Set(new Map(this.leaguesW.map((item: any) => [item[key], item.id])));
       console.log(res)
     })
   }
@@ -81,8 +77,7 @@ export class LeagueComponent {
     this.leagueService.getHockeyLeaguesM().subscribe(res => {
       this.leaguesM = Object.values(res)[1]
       const key = 'name';
-      let tempName = new Set(new Map(this.leaguesM.map((item: any) => [item[key], item.id])))
-      this.leaguesM = tempName;
+      this.leaguesM =  new Set(new Map(this.leaguesM.map((item: any) => [item[key], item.id])));
       console.log(res)
     })
   }
@@ -91,8 +86,7 @@ export class LeagueComponent {
     this.leagueService.getHockeyLeaguesW().subscribe(res => {
       this.leaguesW = Object.values(res)[1]
       const key = 'name';
-      let tempName = new Set(new Map(this.leaguesW.map((item: any) => [item[key], item.id])))
-      this.leaguesW = tempName;
+      this.leaguesW = new Set(new Map(this.leaguesW.map((item: any) => [item[key], item.id])));
       console.log(res)
     })
   }
