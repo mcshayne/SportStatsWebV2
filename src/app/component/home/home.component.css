@@ -57,7 +57,7 @@
 
 
 .football-card {
-  width: auto;
+  width: 600px;
   height: auto;
   border: solid gray;
 }
@@ -75,7 +75,7 @@
 }
 
 .NHL-card {
-  width: auto;
+  width: 600px;
   height: auto;
   border: solid gray;
 }
@@ -93,7 +93,7 @@
 }
 
 .floorball-card {
-  width: auto;
+  width: 600px;
   height: auto;
   border: solid gray;
 }
