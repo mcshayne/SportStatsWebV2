@@ -1,0 +1,13 @@
+<div class="main-container">
+  <div class="container " *ngIf="tableDiv">
+      <app-table [leagueId]=leagueId></app-table>
+</div>
+
+<div class="container " *ngIf="leagueDiv">
+ 
+      <div class="pb-5">
+        <h1>{{sportIdentifier}} Leagues</h1>
+      </div>
+      <app-league [sportIdentifier]=sportIdentifier (getLeagueId)="switchView($event)"></app-league>
+    </div>
+  </div>

@@ -1,0 +1,57 @@
+<div class="row ">
+
+  <div class="col-10">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col" [title]=tableTitlesHover[j] *ngFor="let i of tableTitles;let j = index">
+              {{i}}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of leagueStandings; let in = index">
+            <td scope="row">{{i.position}} </td>
+            <td (click)="selectTeam(i.team.name)">{{i.team.name}}</td>
+            <td *ngFor="let x of statsForTeam[in] ">{{x.value}} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-2" >
+
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">
+              Season
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of seasons; let in = index">
+            <td scope="row" (click)="changeSeason(i.id)">{{i.season.startYear}} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
+<div class="matches">
+  <h1>Matches</h1>
+  <button class="buttonMatches" mat-mini-fab (click)="setMatches('ALL')">All</button>
+  <button class="buttonMatches" mat-mini-fab (click)="setMatches('UPCOMING')">Upcoming</button>
+  <button class="buttonMatches" mat-mini-fab (click)="setMatches('FINISHED')">Finished</button>
+  <div class="score-card-list">
+    <mat-card class="score-card" *ngFor="let i of events">
+      <span class="home">{{i.homeTeam.name}} <img class="logo" src={{i.homeTeam.logo}}></span>
+      <span class="score"> {{i.homeTeamScore}} : {{i.visitingTeamScore}} </span>
+      <span class="away"><img class="logo" src={{i.visitingTeam.logo}}> {{i.visitingTeam.name}}</span>
+      <span class="date">{{i.startDate}}</span>
+    </mat-card>
+  </div>
+</div>

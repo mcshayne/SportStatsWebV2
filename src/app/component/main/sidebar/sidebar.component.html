@@ -1,7 +1,20 @@
-<div class="sidebar">
-    <a routerLinkActive="active" routerLink="/home"><i class="fa fa-fw fa-home"></i> Home</a>
-    <a routerLinkActive="active" routerLink="/football"><i class="far fa-futbol"></i> Football</a>
-    <a routerLinkActive="active" routerLink="/hockey"><i class="fas fa-hockey-puck"></i> Ice Hockey</a>
-    <a routerLinkActive="active" routerLink="/floorball"><i class="fas fa-futbol"></i> Floorball</a>
-    <a routerLinkActive="active" routerLink="/contact"><i class="fa fa-fw fa-envelope"></i> Contact Us</a>
-  </div>
+<div class="sidebar" id="sidebar">
+    <a (click)="hideDropdownContainer()" (keydown.enter)="hideDropdownContainer()"
+      routerLinkActive="active" routerLink="/home"><i class="fa fa-fw fa-home"></i> Home</a>
+    <!-- tabindex="0" makes the element below focusable in sequential keyboard navigation -->
+    <a tabindex="0" (click)="switchDropdownContainerVisibility()"
+                    (keydown.enter)="switchDropdownContainerVisibility()">
+      <i class="fas fa-medal"></i> Sports 
+      <i class="fa" [ngClass]="!dropdownContainerIsVisible? 'fa-caret-down' : 'fa-caret-up'"></i>
+      <div [ngClass]="!dropdownContainerIsVisible? 'dropdown-container-hidden' : 'dropdown-container-visible'">
+        <a (click)="hideDropdownContainer()" (keydown.enter)="hideDropdownContainer()"
+          routerLinkActive="active" [routerLink]="['/sport','Football']"><i class="far fa-futbol"></i> Football</a>
+        <a (click)="hideDropdownContainer()" (keydown.enter)="hideDropdownContainer()"
+          routerLinkActive="active" [routerLink]="['/sport','Hockey']"><i class="fas fa-hockey-puck"></i> Ice Hockey</a>
+        <a (click)="hideDropdownContainer()" (keydown.enter)="hideDropdownContainer()"
+          routerLinkActive="active" [routerLink]="['/sport','Floorball']"><i class="fas fa-futbol"></i> Floorball</a>
+      </div>
+    </a>
+    <a (click)="hideDropdownContainer()" (keydown.enter)="hideDropdownContainer()"
+       routerLinkActive="active" routerLink="/contact"><i class="fa fa-fw fa-envelope"></i> Contact us</a>
+</div>

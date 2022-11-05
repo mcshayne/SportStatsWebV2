@@ -1,1 +1,60 @@
-<p>home works!</p>
+<h1>LATEST RESULTS</h1>
+<div class="div-football">
+  <mat-card class="football-card">
+    <mat-card-header>
+      <div mat-card-avatar class="football-image"></div>
+      <mat-card-title>Football</mat-card-title>
+    </mat-card-header>
+
+    <div class="matches">
+      <div class="score-card-list">
+        <mat-card class="score-card" *ngFor="let i of footballevents">
+          <span class="home">{{i.homeTeam.name}} <img class="logo" src={{i.homeTeam.logo}}></span>
+          <span class="score"> {{i.homeTeamScore}} : {{i.visitingTeamScore}} </span>
+          <span class="away"><img class="logo" src={{i.visitingTeam.logo}}> {{i.visitingTeam.name}}</span>
+          <span class="date">{{i.startDate}}</span>
+        </mat-card>
+      </div>
+    </div>
+  </mat-card>
+</div>
+
+<div class="div-NHL">
+  <mat-card class="NHL-card">
+    <mat-card-header>
+      <div mat-card-avatar class="NHL-image"></div>
+      <mat-card-title>Ice Hockey</mat-card-title>
+    </mat-card-header>
+
+    <div class="matches">
+      <div class="score-card-list">
+        <mat-card class="score-card" *ngFor="let i of hockeyevents">
+          <span class="home">{{i.homeTeam.name}} <img class="logo" src={{i.homeTeam.logo}}></span>
+          <span class="score"> {{i.homeTeamScore}} : {{i.visitingTeamScore}} </span>
+          <span class="away"><img class="logo" src={{i.visitingTeam.logo}}> {{i.visitingTeam.name}}</span>
+          <span class="date">{{i.startDate}}</span>
+        </mat-card>
+      </div>
+    </div>
+  </mat-card>
+</div>
+
+<div class="div-floorball">
+  <mat-card class="floorball-card">
+    <mat-card-header>
+      <div mat-card-avatar class="floorball-image"></div>
+      <mat-card-title>Floorball</mat-card-title>
+    </mat-card-header>
+
+    <div class="matches">
+      <div class="score-card-list">
+        <mat-card class="score-card" *ngFor="let i of floorballevents">
+          <span class="home">{{i.homeTeam.name}} <img class="logo" src={{i.homeTeam.logo}}></span>
+          <span class="score"> {{i.homeTeamScore}} : {{i.visitingTeamScore}} </span>
+          <span class="away"><img class="logo" src={{i.visitingTeam.logo}}> {{i.visitingTeam.name}}</span>
+          <span class="date">{{i.startDate}}</span>
+        </mat-card>
+      </div>
+    </div>
+  </mat-card>
+</div>

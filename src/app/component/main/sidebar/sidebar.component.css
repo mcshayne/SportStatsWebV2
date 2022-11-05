@@ -5,6 +5,7 @@
     width: 200px;
     background-color: #f1f1f1;
     position: fixed;
+    top:0;
     height: 100%;
     overflow: auto;
   }
@@ -15,11 +16,12 @@
     color: black;
     padding: 16px;
     text-decoration: none;
+    transition: 0.4s;
   }
   
   /* Active/current link */
   .sidebar a.active {
-    background-color: #04AA6D;
+    background-color: #04AA6D; /* NOTE: Same as contact.component.css .mat-spinner circle (update both to keep them matching)*/
     color: white;
   }
   
@@ -28,7 +30,7 @@
     background-color: #555;
     color: white;
   }
-  
+
   /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
   div.content {
     margin-left: 200px;
@@ -53,4 +55,15 @@
       text-align: center;
       float: none;
     }
+  }
+
+  /* The dropdown container div alternates between these two classes to keep the container hidden
+     until it is requested by a click.
+  */
+  .dropdown-container-hidden {
+    display: none;
+  }
+  .dropdown-container-visible {
+    display: block;
+    background-color: #f1f1f1;
   }

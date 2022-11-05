@@ -1,0 +1,70 @@
+table {
+    width: 100%;
+
+  }
+  @media only screen and (max-width: 900px) {
+    .table {
+      font-size: small;
+    }
+    .matches{
+      font-size: small;
+    }
+  }
+  @media only screen and (max-width: 700px) {
+    .table {
+      font-size: x-small;
+    }
+    .matches{
+      font-size: x-small;
+    }
+
+  }
+  
+
+
+.buttonMatches {
+  margin-left: 20px;
+  position: relative;
+}
+
+.score-card-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.score-card {
+  width: 100%;
+  display: flex !important;
+  margin-top: 10px;
+}
+
+.home {
+  flex: 1;
+  text-align: right;
+}
+
+.away {
+  flex: 1;
+  text-align: left;
+}
+
+.score {
+  width: 100px;
+}
+
+.date {
+  text-align: right;
+}
+
+.logo {
+  width: 20px;
+  padding-right:3px; 
+  padding-top: 3px; 
+  display:inline-block;
+}
+
+
+
+
+
