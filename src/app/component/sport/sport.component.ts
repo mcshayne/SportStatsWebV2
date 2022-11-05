@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 @Component({
@@ -12,9 +12,10 @@ export class SportComponent implements OnInit  {
   tableDiv: boolean = false;
   leagueDiv: boolean = true;
   sportIdentifier: string ="" ;
-  sub: any;
-  someSubscription: any;
 
+  //Code from https://medium.com/beingcoders/angular-basics-refresh-an-angular-component-without-reloading-the-same-component-b6c513f06fb2 
+  // to get navbar and sport-component to work together.
+  someSubscription: any;
   constructor(private route: ActivatedRoute,private router:Router) {
     /* Code that makes the page refreash once you press a new key in the nav-bar*/
     this.router.routeReuseStrategy.shouldReuseRoute = function () {

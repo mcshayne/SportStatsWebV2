@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { stats } from 'src/app/interface/stats'
-import { leagueStanding } from 'src/app/interface/leagueStanding';
 
 
 

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { LeagueService } from 'src/app/service/league.service';
 import { Output, EventEmitter } from '@angular/core';
 

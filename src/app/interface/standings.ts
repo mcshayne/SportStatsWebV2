@@ -1,6 +1,4 @@
-import { league } from "./league";
 import { positionStatuses } from "./positionStatuses";
-import { sport } from "./sport";
 import { stats } from "./stats";
 import { team } from "./team";
 
